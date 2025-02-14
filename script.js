@@ -199,7 +199,8 @@ async function getLocationWeather() {
                                         <span class="forecast-day">${day}</span>,<span id="forecast-hour">${hour}</span>
                                     </div>
                                     <div class="forecast-data">
-                                      <span class="forecast-description">${forecastDescription}</span><span class="forecast-temp">${temp}°<span class="forecast-unit">${unit === 'metric' ? 'C' : 'F'}</span></span><span class="img"><img class="desImg"src="${forecastIconSrc}"></span>
+                                      <span class="forecast-description">${forecastDescription}</span><span class="forecast-temp">${temp}°<span class="forecast-unit">${unit === 'metric' ? 'C' : 'F'}</span></span><span class="img"><img class="desImg
+                                      "src="${forecastIconSrc}"></span>
                                     </div>
                                   
                                 </li>`;

@@ -540,9 +540,16 @@ hr {
     
 header {
     width: 100%;
-    left: 5px;
+    left: 1px;
     top: 40px;
 }
+
+html, body {
+    overflow-x: hidden;
+  width: 100%;
+}
+
+
 
 .frame-2 {
    top: 500px;
@@ -562,6 +569,8 @@ header {
     
     margin-right: 9%;
 }
+
+
 
 .toggleButton {
     margin-bottom: 1%;
@@ -602,32 +611,43 @@ ul {
     flex-direction: column;
     margin: 0 ;
     padding: 0;
-    width: 90%;
+    width: 85%;
     height: 585px;
-    top: 804px;
+    top: 754px;
     left: 2px;
     gap: 15px;
     position: relative;
 } 
 
 li {
-  width: 100%;
+  max-width: 100%;
   overflow: scroll;
+  white-space: nowrap;
 }
 
 .forecast-time {
     width: 290px;
     white-space: nowrap;
 }
+
+.forecast-data {
+    width: 100%;
+}
+
+
+
+
     
 #weather {
-    width: 90%;
+    width: 95%;
+    height: 134px;
     top: 700px;
     
 }
 .content {
     justify-content: space-between;
     gap: 0;
+    width: 70%;
     flex-direction: column;
     align-items: center;
 }
@@ -649,3 +669,4 @@ html {
 
 }
   
+
