@@ -448,6 +448,7 @@ hr {
           left: 40%;
           bottom: 29%;
           left: 26%;
+          
         }
         
         .knob {
@@ -549,6 +550,11 @@ html, body {
   width: 100%;
 }
 
+* {
+    outline: 1px solid red; /* Highlights all elements */
+  }
+  
+
 
 
 .frame-2 {
@@ -562,7 +568,7 @@ html, body {
 
 #city {
     width: 50%;
-    -webkit-appearance: none; 
+   
 }
 
 #search {
@@ -573,7 +579,7 @@ html, body {
     justify-content: center;
     align-items: center;
     margin-right: 0;
-    -webkit-appearance: none; 
+  
 }
 
 
@@ -588,7 +594,8 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    -webkit-appearance: none; 
+    position: relative; /* Change if it’s absolute */
+    z-index: 10;
 }
 
 .knob {
@@ -598,7 +605,7 @@ html, body {
 
 #unitToggle {
     left: 8px;
-    -webkit-appearance: none; 
+
 }
 
  
