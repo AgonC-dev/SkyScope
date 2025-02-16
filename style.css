@@ -568,6 +568,7 @@ html, body {
 #city {
     width: 50%;
     margin-right: 50%;
+    font-size: 16px;
 }
 
 #search {
@@ -575,7 +576,7 @@ html, body {
     padding: 0;
     min-width: 60px;
     overflow: hidden;
-    height: 30%;
+    height: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -602,7 +603,7 @@ html, body {
 .toggleButton {
     margin-bottom: 1%;
     width: 20%;
-    top: 55%;
+    top: 60%;
     left: 61%;
     
     height: 30%;
@@ -616,7 +617,7 @@ html, body {
 .knob {
   position: absolute;
    
-   width: 30%;
+   width: 40%;
    height: 100%;
  
 }
