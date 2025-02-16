@@ -550,16 +550,15 @@ html, body {
   width: 100%;
 }
 
-* {
-    outline: 1px solid red; /* Highlights all elements */
-  }
+
   
 
 
 
 .frame-2 {
    top: 500px;
-   width: 95%;
+   width: 70%;
+   left: 61px;
    height: fit-content;
    margin: 0;
    gap: 10px;
@@ -568,18 +567,32 @@ html, body {
 
 #city {
     width: 50%;
-   
+    margin-right: 50%;
 }
 
 #search {
-    width: 3%;
-    max-width: 14%;
-    height: 46px;  
+    width: 30%;
+    padding: 0;
+    min-width: 60px;
+    overflow: hidden;
+    height: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 0;
-  
+    position: absolute;
+    top: 65%;
+    left: 73%;
+}
+
+#search span {
+    font-family: "Urbanist", serif;
+    font-weight: 700;
+    font-size: 14px;  /* Adjust font size if needed */
+    line-height: 16px;
+    width: auto;
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -588,23 +601,28 @@ html, body {
 
 .toggleButton {
     margin-bottom: 1%;
-    width: 10%;
-    margin-right: 16%;
-    height: 50%;
+    width: 20%;
+    top: 55%;
+    left: 61%;
+    
+    height: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; /* Change if it’s absolute */
+    position: absolute; /* Change if it’s absolute */
     z-index: 10;
 }
 
 .knob {
-    margin-right: 10%;
-    visibility: hidden;
+  position: absolute;
+   
+   width: 30%;
+   height: 100%;
+ 
 }
 
 #unitToggle {
-    left: 8px;
+   top: 4px;
 
 }
 
