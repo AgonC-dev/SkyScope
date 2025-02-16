@@ -10,6 +10,7 @@ document.getElementById('search').addEventListener('click', () => {
     }
 });
 
+console.log(window.innerWidth, window.devicePixelRatio);
 document.getElementById('city').addEventListener('keydown', (event) => {
     if (event.key === 'Enter') { 
         const city = document.getElementById('city').value.trim();
