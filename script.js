@@ -80,7 +80,7 @@ function toggleUnit() {
  toggleLabelF.disabled = false;
 
 if(unit === 'imperial') {
-    knob.style.left = "-2px"; 
+    knob.style.left = "0px"; 
     toggleContainer.style.backgroundColor = "#227c45fb";
     toggleLabelC.style.visibility = "hidden";
     toggleLabelF.style.visibility = "visible";

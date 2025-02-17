@@ -1,9 +1,24 @@
 body {
   background-image: url("fotografi/uriel-xtgONQzGgOE-unsplash\ 1.png");
   height: 100%;
+  width: 100%;
   box-sizing: border-box;
+  background-size: cover;
   margin: 0;
+  opacity: 0; /* Start invisible */
+  animation: fadeIn 1.5s ease-in-out forwards;
 }
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px); /* Slight movement */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
 html {
  background-color: #0D235E;
@@ -12,6 +27,7 @@ html {
 
 * {
     box-sizing: border-box;
+
 }
 
 .container {
@@ -395,20 +411,93 @@ hr {
 }
  
 
-/*laptops */
+
+
+/* Styles for tablets and smaller screens (up to 1024px) */
 @media (max-width: 1024px) {
-    header, .frame-2, #forecast ul  {
-      width: 90%; /* use a percentage so it scales */
-      margin: 0 auto;
+    header {
+        width: 90%;
+        left: auto;
+        margin: 0 auto;
     }
 
-    .frame-2 {
-        padding: 20px;
-        flex-direction: row;
+    body {
+        min-height: 100vh;
+        width: 100%;
+        height: 100%;
+       
     }
- 
-    #city {
-      width: 80%;
+    
+    html {
+        height: auto;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    #weather {
+        width: 89%;
+        height: 34px;
+        top: 740px;
+        left: 6.5%;
+        justify-content: space-between;
+        display: flex;
+        position: relative;
+        
+    } 
+
+    .title {
+        font-size: 32px;
+        top: 25%;
+        left: auto;
+        width: 95%;
+      }
+
+
+    .frame-2 {
+        width: 95%;
+        top: 520px;
+        left: 2.5%;
+        margin: 0 auto;
+    }
+
+    .text-2 {
+        width: 100%;
+        height: 20px;
+        top: 620px;
+        left: auto;
+        margin: 0 auto;
+    }
+
+
+
+    ul {
+        width: 90%;
+        left: 60px;
+        
+    }
+
+    li {
+        width: 100%;
+      }
+
+      hr {
+        width: 100%
+      }
+
+    footer {
+        width: 90%;
+        left: auto;
+        margin: 0 auto;
+    }
+
+    .footer-p {
+        width: auto;
+        margin: 0 auto;
+        height: 16px;
+        
+        font-weight: 300;
+        font-size: 13px;
+      
     }
 }
 
@@ -522,7 +611,7 @@ hr {
     } 
 
     hr{
-        width: 70%;
+        width: 78%;
     }
 
     .footer-p {
@@ -549,9 +638,6 @@ html, body {
     overflow-x: hidden;
   width: 100%;
 }
-
-
-  
 
 
 
@@ -603,7 +689,7 @@ html, body {
 .toggleButton {
     margin-bottom: 1%;
     width: 24.1%;
-    top: 60%;
+    top: 52%;
     left: 66%;
     height: 39%;
     display: flex;
@@ -615,7 +701,7 @@ html, body {
 
 .knob {
   position: absolute;
-   
+   margin-top: 1px;
    width: 42%;
    height: 95%;
  
@@ -630,7 +716,12 @@ html, body {
     font-size: 14px;
 }
 
-
+#fahrenheitLabel {
+    display: flex;
+   
+    width: 80%;
+    justify-content: end;
+}
 
  
 #weather {
@@ -649,7 +740,7 @@ html, body {
     width: 128px;
     height: 20px;
     top: 520px;
-    left: 115px;
+    left: auto;
 }
 
 ul {
