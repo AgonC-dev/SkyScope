@@ -7,6 +7,7 @@ body {
   margin: 0;
   opacity: 0; /* Start invisible */
   animation: fadeIn 1.5s ease-in-out forwards;
+  overflow-x: hidden;
 }
 
 @keyframes fadeIn {
@@ -22,7 +23,8 @@ body {
 
 html {
  background-color: #0D235E;
- height: 118%;
+ height: 100%;
+ overflow-x: hidden;
 }
 
 * {
@@ -422,10 +424,10 @@ hr {
     }
 
     body {
-        min-height: 100vh;
+        min-height: 100%;
         width: 100%;
         height: 100%;
-       
+        overflow-x: hidden;
     }
     
     html {
