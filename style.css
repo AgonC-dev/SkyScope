@@ -558,7 +558,7 @@ html, body {
 .frame-2 {
    top: 500px;
    width: 80%;
-   left: 61px;
+   left: 44px;
    height: fit-content;
    margin: 0;
    gap: 10px;
@@ -649,7 +649,7 @@ html, body {
     width: 128px;
     height: 20px;
     top: 520px;
-    left: 120px;
+    left: 115px;
 }
 
 ul {
@@ -678,7 +678,7 @@ li {
 
 .forecast-data {
     width: 100%;
-    margin: 5%;
+    margin-left: 3%;
 }
 
 
@@ -711,8 +711,10 @@ html {
 }
 
 #location {
-    width: 34%;
+    width: 100%;
+    margin: 0 auto;
     white-space: nowrap;
+    
     
 }
 
