@@ -557,7 +557,7 @@ html, body {
 
 .frame-2 {
    top: 500px;
-   width: 70%;
+   width: 80%;
    left: 61px;
    height: fit-content;
    margin: 0;
@@ -566,8 +566,8 @@ html, body {
 }
 
 #city {
-    width: 50%;
-    margin-right: 50%;
+    width: 60%;
+    margin-right: 40%;
     font-size: 16px;
 }
 
@@ -583,7 +583,7 @@ html, body {
     margin-right: 0;
     position: absolute;
     top: 65%;
-    left: 73%;
+    left: 79%;
 }
 
 #search span {
@@ -604,8 +604,8 @@ html, body {
     margin-bottom: 1%;
     width: 24.1%;
     top: 60%;
-    left: 61%;
-    height: 34%;
+    left: 66%;
+    height: 39%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -616,13 +616,13 @@ html, body {
 .knob {
   position: absolute;
    
-   width: 40%;
-   height: 100%;
+   width: 42%;
+   height: 95%;
  
 }
 
 #unitToggle {
-   top: 6px;
+   top: 8px;
 
 }
 
@@ -639,7 +639,7 @@ html, body {
     top: 740px;
     left: 24px;
     
-    justify-content: space-between;
+    justify-content: space-evenly;
     display: flex;
     position: relative;
     
@@ -648,8 +648,8 @@ html, body {
 .text-2 {
     width: 128px;
     height: 20px;
-    top: 620px;
-    left: 126px;
+    top: 520px;
+    left: 120px;
 }
 
 ul {
@@ -678,6 +678,7 @@ li {
 
 .forecast-data {
     width: 100%;
+    margin: 5%;
 }
 
 
@@ -685,16 +686,17 @@ li {
 
     
 #weather {
-    width: 95%;
+    width: 100%;
     height: 134px;
-    top: 700px;
+    top: 650px;
+    left: 1px;
+    flex-wrap: wrap;
     
 }
 
 .content {
-    font-size: ;
     justify-content: space-between;
-    gap: 0;
+    gap: 15px;
     width: 70%;
     flex-direction: column;
     align-items: center;
