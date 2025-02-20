@@ -51,7 +51,7 @@ header {
     max-width: 828px;
     height: 66px;
     margin: 0 auto;
-    top: 62px;
+    top: -50px;
     border-radius: 70px;
     display: flex;
     justify-content: space-between;
@@ -91,7 +91,7 @@ header {
 .text-2 {
     width: 128px;
     height: 20px;
-    top: 620px;
+    top: 450px;
     left: 896px;
     font-family: "Urbanist", serif;
     font-weight: 400;
@@ -106,9 +106,9 @@ header {
     max-width: 621px;
     height: 116px;
     top: 330px;
-    left: 666px;
+    
     margin: 0 auto;
-    position: absolute;
+    position: relative;
     font-family: "Urbanist", serif;
     font-weight: 700;
     font-size: 54px;
@@ -131,13 +131,13 @@ header {
     width: 100%;
     margin: 0 auto;
     height: 126px;
-    top: 564px;
-    left: 422px;
+    top: 464px;
+    
     border-radius: 90px;
     padding: 40px;
     gap: 10px;
     background-color: rgba(255, 255, 255, 0.2);
-    position: absolute;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -246,7 +246,7 @@ header {
 #weather {
     max-width: 1077px;
     height: 34px;
-    top: 740px;
+    top: 540px;
     
     justify-content: space-between;
     display: flex;
@@ -305,7 +305,7 @@ ul {
     padding: 0;
     max-width: 1077px;
     height: 585px;
-    top: 804px;
+    top: 604px;
     gap: 15px;
     position: relative;
     
@@ -394,7 +394,7 @@ li {
 footer {
     max-width: 1077px;
     height: 131px;
-    top: 889px;
+    top: 689px;
     text-align: center;
     
     position: relative;
@@ -549,11 +549,13 @@ hr {
         .toggleButton {
           width: 80px;  /* smaller toggle for mobile */
           height: 35px;
-          left: 40%;
+          left: 15%;
           bottom: 29%;
-          left: 26%;
+         
           
         }
+
+   
         
         .knob {
           width: 32px;
@@ -564,15 +566,20 @@ hr {
           width: 54%;
           text-align: center;
           margin-top: -15%;
-          margin-left: -15%; 
+          margin-left: -13%; 
         }
+        
 
+    #unitToggle {
+        top: 9px;
+    }
        
          #weather {
-                width: 90%;
+                width: 80%;
                 height: 34px;
                 top: 740px;
-                left: 54px;
+                
+                left: 1px;
                 justify-content: space-between;
                 display: flex;
                 position: relative;
@@ -583,13 +590,14 @@ hr {
                 width: 128px;
                 height: 20px;
                 top: 620px;
-                left: 296px;
+                
+                margin: 0 auto;
             }
 
         ul {
             display: flex;
             flex-direction: column;
-            margin: 0 ;
+            margin: 0 auto;
             padding: 0;
             width: 90%;
             height: 585px;
@@ -660,6 +668,7 @@ html, body {
    top: 500px;
    width: 80%;
    left: 44px;
+   position: absolute;
    height: fit-content;
    margin: 0;
    gap: 10px;
@@ -697,6 +706,11 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
+.title {
+    position: absolute;
+}
+
 
 
 
@@ -825,6 +839,9 @@ html {
     
 }
 
+footer {
+    top: 820px;
+}
 
 }
   
