@@ -91,8 +91,8 @@ header {
 .text-2 {
     width: 128px;
     height: 20px;
-    top: 450px;
-    left: 896px;
+    top: 470px;
+    margin: 0 auto;
     font-family: "Urbanist", serif;
     font-weight: 400;
     font-size: 18px;
@@ -508,7 +508,7 @@ hr {
         width: auto;
         margin: 0 auto;
         height: 16px;
-        
+        color: #FFFFFF;
         font-weight: 300;
         font-size: 13px;
       
@@ -839,7 +839,11 @@ html {
 }
 
 footer {
-    top: 820px;
+    top: 800px;
+}
+
+.footer-p {
+    margin: 1%;
 }
 
 }
