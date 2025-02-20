@@ -8,6 +8,11 @@ body {
   opacity: 0; /* Start invisible */
   animation: fadeIn 1.5s ease-in-out forwards;
   overflow-x: hidden;
+
+ 
+
+  /* Ensures it fills the screen height */
+
 }
 
 @keyframes fadeIn {
@@ -24,11 +29,14 @@ body {
 html {
  background-color: #0D235E;
  height: 118%;
+ display: flex;
+ justify-content: center;
+ 
 }
 
 * {
     box-sizing: border-box;
-    border: 1px solid red;
+    border: 2px solid black;
 }
 
 .container {
@@ -42,8 +50,8 @@ html {
 header {
     max-width: 828px;
     height: 66px;
+    margin: 0 auto;
     top: 62px;
-    left: 546px;
     border-radius: 70px;
     display: flex;
     justify-content: space-between;
@@ -99,6 +107,7 @@ header {
     height: 116px;
     top: 330px;
     left: 666px;
+    margin: 0 auto;
     position: absolute;
     font-family: "Urbanist", serif;
     font-weight: 700;
@@ -120,6 +129,7 @@ header {
 .frame-2 {
     max-width: 1077px;
     width: 100%;
+    margin: 0 auto;
     height: 126px;
     top: 564px;
     left: 422px;
@@ -237,11 +247,11 @@ header {
     max-width: 1077px;
     height: 34px;
     top: 740px;
-    left: 422px;
+    
     justify-content: space-between;
     display: flex;
     position: relative;
-    
+    margin: 0 auto;
 }
 
 #location {
@@ -291,12 +301,11 @@ header {
 ul {
     display: flex;
     flex-direction: column;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     max-width: 1077px;
     height: 585px;
     top: 804px;
-    left: 422px;
     gap: 15px;
     position: relative;
     
@@ -387,9 +396,10 @@ footer {
     height: 131px;
     top: 889px;
     text-align: center;
-    left: 422px;
+    
     position: relative;
     gap: 40px;
+    margin: 0 auto;
    
 }
 
@@ -400,6 +410,7 @@ footer {
 
 hr {
     max-width: 1077px;
+    margin: 0 auto;
     color: rgba(255, 255, 255, 0.2);
 }
 
