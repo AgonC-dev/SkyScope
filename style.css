@@ -23,13 +23,12 @@ body {
 
 html {
  background-color: #0D235E;
- height: 100%;
- overflow-x: hidden;
+ height: 118%;
 }
 
 * {
     box-sizing: border-box;
-
+    border: 1px solid red;
 }
 
 .container {
@@ -41,7 +40,7 @@ html {
 
 
 header {
-    width: 828px;
+    max-width: 828px;
     height: 66px;
     top: 62px;
     left: 546px;
@@ -96,7 +95,7 @@ header {
 }
 
 .title {
-    width: 621px;
+    max-width: 621px;
     height: 116px;
     top: 330px;
     left: 666px;
@@ -119,7 +118,8 @@ header {
 }
 
 .frame-2 {
-    width: 1077px;
+    max-width: 1077px;
+    width: 100%;
     height: 126px;
     top: 564px;
     left: 422px;
@@ -135,7 +135,8 @@ header {
 }
 
 #city {
-    width: 700px;
+    max-width: 700px;
+    width: 100%;
     height: 46px;
     border-radius: 60px;
     padding: 15px 30px;
@@ -211,7 +212,8 @@ header {
 }
 
 #search {
-    width: 191px;
+    max-width: 191px;
+    width: 100%;
     height: 46px;
     border-radius: 60px;
     padding: 15px 70px;
@@ -232,7 +234,7 @@ header {
 }
 
 #weather {
-    width: 1077px;
+    max-width: 1077px;
     height: 34px;
     top: 740px;
     left: 422px;
@@ -291,7 +293,7 @@ ul {
     flex-direction: column;
     margin: 0;
     padding: 0;
-    width: 1077px;
+    max-width: 1077px;
     height: 585px;
     top: 804px;
     left: 422px;
@@ -304,7 +306,7 @@ li {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 1077px;
+    max-width: 1077px;
     height: 60px;
     border-radius: 10px;
     padding: 10px;
@@ -336,7 +338,7 @@ li {
 }
 
 .forecast-data {
-    width: 379px;
+    max-width: 379px;
     height: 40px;
     display: flex;
     align-items: center;
@@ -344,7 +346,7 @@ li {
 }
 
 .forecast-description {
-    width: 252px;
+    max-width: 252px;
     height: 30px;
     font-family: "Urbanist", serif;
     font-weight: 300;
@@ -355,7 +357,7 @@ li {
 }
 
 .forecast-temp {
-    width: 87px;
+    max-width: 87px;
     height: 30px;
     font-family: "Urbanist", serif;
     font-weight: 700;
@@ -381,7 +383,7 @@ li {
 }
 
 footer {
-    width: 1077px;
+    max-width: 1077px;
     height: 131px;
     top: 889px;
     text-align: center;
@@ -397,12 +399,12 @@ footer {
 }
 
 hr {
-    width: 1077px;
+    max-width: 1077px;
     color: rgba(255, 255, 255, 0.2);
 }
 
 .footer-p {
-    width: 1077px;
+    max-width: 1077px;
     height: 16px;
     font-family: "Urbanist", serif;
     font-weight: 300;
@@ -650,6 +652,7 @@ html, body {
    height: fit-content;
    margin: 0;
    gap: 10px;
+   padding: 4%;
    display: flex;
 }
 
@@ -690,7 +693,7 @@ html, body {
 
 .toggleButton {
     margin-bottom: 1%;
-    width: 24.1%;
+    width: 22.1%;
     top: 52%;
     left: 66%;
     height: 39%;
