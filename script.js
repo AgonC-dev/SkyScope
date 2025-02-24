@@ -37,7 +37,7 @@ const iconMap = {
     "Clear": "fotografi/Group 1.png",
     "Clouds": "fotografi/ret.png",
     "Partly Cloudy": "fotografi/re e dill.png",
-    "Rain": "fotografi/re me shi.png",
+    "Rain": "fotografi/Rain.svg",
     "Snow": "fotografi/bora.png"
 }
 
