@@ -275,7 +275,7 @@ header {
 }
 
 #location {
-    animation-delay: 0.2s;
+    animation-delay: 0.4s;;
 }
 
 .content {
@@ -288,7 +288,7 @@ header {
 }
 
 .content {
-    animation-delay: 0.4s;
+    animation-delay: 0.6s;
 }
 
 #temperature {
@@ -305,7 +305,7 @@ header {
 }
 
 #temperature {
-    animation-delay: 0.8s;
+    animation-delay: 1s;
 }
 
 #description {
@@ -322,7 +322,7 @@ header {
 }
 
 #description {
-    animation-delay: 1.21s;
+    animation-delay: 1.4s;
 }
 
 

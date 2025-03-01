@@ -8,7 +8,7 @@ document.getElementById('city').addEventListener("input", debounce(() => {
     if (city) {
         getWeather(city);
     }
-},500 ));
+},900 ));
 
 document.getElementById('search').addEventListener('click', () => {
     const city = document.getElementById('city').value.trim();
