@@ -1,6 +1,13 @@
 const apiKey = '2408ae23b02c6cbe85ac54b455cb1289';
 let unit = 'metric';  
 
+
+
+document.getElementById('city').addEventListener("input", debounce(() => {
+    const city = document.getElementById('city').value.trim();
+    
+},500 ));
+
 document.getElementById('search').addEventListener('click', () => {
     const city = document.getElementById('city').value.trim();
     if (city) {
@@ -109,7 +116,6 @@ async function getWeather(city) {
         const data = await response.json();
         if (data.cod === 200) {
           document.getElementById('weather').classList.remove('hidden');
-          document.getElementById('weather').classList.remove('hidden');  
           document.getElementById('location').innerText = `${data.name}, ${data.sys.country}`;
           document.getElementById('temperature').innerText = `Temperature: ${data.main.temp}°${unit === 'metric' ? 'C' : 'F'}`;
           document.getElementById('description').innerText = `Description: ${data.weather[0].description}`;
@@ -124,28 +130,33 @@ async function getWeather(city) {
           const iconSrc = getWeatherIcon(description);
 
          let forecastHTML = '<ul>';
-         for (let i = 0; i < 16; i++) {
-        const forecastDate = new Date(forecastData.list[i].dt_txt);
-        const day = forecastDate.toLocaleString('en-US', { weekday:'long'});
-        const hour = forecastDate.toLocaleString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true});
-        const temp = forecastData.list[i].main.temp;
-        const forecastMain = forecastData.list[i].weather[0].main;
-        const forecastIconSrc = getWeatherIcon(forecastMain);
-        const forecastDescription = forecastData.list[i].weather[0].description;
-        if (forecastDate.getMinutes() === 0 && forecastDate.getHours() % 6 === 0) {
-            forecastHTML += `<li class="forecastcycle">
+         for (let i = 0; i <  Math.min(8, forecastData.list.length); i++) {
+         let index = i * 2; // Picks index 0, 5, 10, 15, 20, 25, 30, 35
+         if (index >= forecastData.list.length) break; 
+
+    const forecast = forecastData.list[index];
+    const forecastDate = new Date(forecast.dt_txt);
+    const day = forecastDate.toLocaleString('en-US', { weekday: 'long' });
+    const hour = forecastDate.toLocaleString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+    const temp = forecast.main.temp;
+    const forecastMain = forecast.weather[0].main;
+    const forecastIconSrc = getWeatherIcon(forecastMain);
+    const forecastDescription = forecast.weather[0].description;
+
+    forecastHTML += `<li class="forecastcycle">
                         <div class="forecast-time">
-                            <span class="forecast-day">${day}</span>,<span id="forecast-hour">${hour}</span>
+                            <span class="forecast-day">${day}</span>, <span id="forecast-hour">${hour}</span>
                         </div>
                         <div class="forecast-data">
-                          <span class="forecast-description">${forecastDescription}</span><span class="forecast-temp">${temp}°<span class="forecast-unit">${unit === 'metric' ? 'C' : 'F'}</span></span><span class="img"><img class="desImg"src="${forecastIconSrc}"></span>
+                          <span class="forecast-description">${forecastDescription}</span>
+                          <span class="forecast-temp">${temp}°<span class="forecast-unit">${unit === 'metric' ? 'C' : 'F'}</span></span>
+                          <span class="img"><img class="desImg" src="${forecastIconSrc}"></span>
                         </div>
-                      
                     </li>`;
-        }
-    }  
+}
+
         forecastHTML += '</ul>'; 
-        document.getElementById('forecast').innerHTML = forecastHTML;     
+        document.getElementById('forecast').innerHTML = forecastHTML;
         } else {
             alert('City not found. Please try again.');
         }
@@ -227,3 +238,11 @@ async function getLocationWeather() {
 document.getElementById('getLocationWeather').addEventListener('click', () => {
     getLocationWeather();
 });
+
+function debounce(func, delay) {
+    let timer;
+    return function(...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => func.apply(this, args), delay);
+    };
+}

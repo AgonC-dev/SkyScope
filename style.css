@@ -109,6 +109,7 @@ header {
     margin: 0 auto;
     position: relative;
     font-family: "Urbanist", serif;
+    font-display: swap;
     font-weight: 700;
     font-size: 54px;
     line-height: 58px;
@@ -122,7 +123,8 @@ header {
     font-size: 54px;
     line-height: 58px;
     text-align: center;
-    color:#FFFFFF
+    color:#FFFFFF;
+    font-display: swap;
 }
 
 .frame-2 {
