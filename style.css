@@ -26,6 +26,7 @@ body {
     }
   }
 
+
 html {
  background-color: #0D235E;
  height: 118%;
@@ -248,11 +249,16 @@ header {
     max-width: 1077px;
     height: 34px;
     top: 540px;
-    
     justify-content: space-between;
     display: flex;
     position: relative;
     margin: 0 auto;
+    opacity: 0; /* Initial state */
+    animation: fadeInn 1s ease-in-out forwards;
+}
+
+#weather {
+    animation-delay: 0.2s;
 }
 
 #location {
@@ -264,6 +270,12 @@ header {
     line-height: 34px;
     text-align: center;
     color: #FFFFFF;
+    opacity: 0;
+    animation: fadeInn 1s ease-in-out forwards;
+}
+
+#location {
+    animation-delay: 0.2s;
 }
 
 .content {
@@ -271,7 +283,12 @@ header {
     height: 34px;
     gap: 55px;
     display: flex;
-    
+    opacity: 0;
+    animation: fadeInn 1s ease-in-out forwards;
+}
+
+.content {
+    animation-delay: 0.4s;
 }
 
 #temperature {
@@ -283,6 +300,12 @@ header {
     line-height: 34px;
     text-align: center;
     color: #FFFFFF;
+    opacity: 0;
+    animation: fadeInn 1s ease-in-out forwards;
+}
+
+#temperature {
+    animation-delay: 0.8s;
 }
 
 #description {
@@ -294,7 +317,12 @@ header {
     line-height: 34px;
     text-align: center;
     color: #FFFFFF;
-    
+    opacity: 0;
+    animation: fadeInn 1s ease-in-out forwards;
+}
+
+#description {
+    animation-delay: 1.2s;
 }
 
 
@@ -321,11 +349,51 @@ li {
     border-radius: 10px;
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.2);
+    animation: fadeInn 1s ease-in-out forwards;
+    opacity: 0;
 }
 
 #fahrenheitLabel {
     visibility: hidden;
 }
+
+
+li:nth-child(1) {
+    animation-delay: 0.2s;
+}
+li:nth-child(2) {
+    animation-delay: 0.4s;
+}
+li:nth-child(3) {
+    animation-delay: 0.6s;
+}
+li:nth-child(4) {
+    animation-delay: 0.8s;
+}
+li:nth-child(5) {
+    animation-delay: 1s;
+}
+li:nth-child(6) {
+    animation-delay: 1.2s;
+}
+li:nth-child(7) {
+    animation-delay: 1.4s;
+}
+li:nth-child(8) {
+    animation-delay: 1.6s;
+}
+  
+
+  @keyframes fadeInn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+
 
 #forecast .forecast-time {
     width: 241px;
