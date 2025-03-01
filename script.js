@@ -5,7 +5,9 @@ let unit = 'metric';
 
 document.getElementById('city').addEventListener("input", debounce(() => {
     const city = document.getElementById('city').value.trim();
-    
+    if (city) {
+        getWeather(city);
+    }
 },500 ));
 
 document.getElementById('search').addEventListener('click', () => {
