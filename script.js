@@ -8,7 +8,7 @@ document.getElementById('city').addEventListener("input", debounce(() => {
     if (city) {
         getWeather(city);
     }
-},900 ));
+},700 ));
 
 document.getElementById('search').addEventListener('click', () => {
     const city = document.getElementById('city').value.trim();
@@ -119,7 +119,7 @@ async function getWeather(city) {
         if (data.cod === 200) {
           document.getElementById('weather').classList.remove('hidden');
           document.getElementById('location').innerText = `${data.name}, ${data.sys.country}`;
-          document.getElementById('temperature').innerText = `Temperature: ${data.main.temp}°${unit === 'metric' ? 'C' : 'F'}`;
+          document.getElementById('temperature').innerText = `Temperature: ${Math.round(data.main.temp)}°${unit === 'metric' ? 'C' : 'F'}`;
           document.getElementById('description').innerText = `Description: ${data.weather[0].description}`;
           document.getElementById('unitToggle').disabled = false;
           document.getElementById('fahrenheitLabel').disabled = false;
@@ -140,7 +140,7 @@ async function getWeather(city) {
     const forecastDate = new Date(forecast.dt_txt);
     const day = forecastDate.toLocaleString('en-US', { weekday: 'long' });
     const hour = forecastDate.toLocaleString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
-    const temp = forecast.main.temp;
+    const temp = Math.round(forecast.main.temp);
     const forecastMain = forecast.weather[0].main;
     const forecastIconSrc = getWeatherIcon(forecastMain);
     const forecastDescription = forecast.weather[0].description;

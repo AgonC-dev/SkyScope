@@ -257,9 +257,7 @@ header {
     animation: fadeInn 1s ease-in-out forwards;
 }
 
-#weather {
-    animation-delay: 0.2s;
-}
+
 
 #location {
     width: 128px;
@@ -274,9 +272,6 @@ header {
     animation: fadeInn 1s ease-in-out forwards;
 }
 
-#location {
-    animation-delay: 0.4s;;
-}
 
 .content {
     width: 433px;
@@ -287,9 +282,6 @@ header {
     animation: fadeInn 1s ease-in-out forwards;
 }
 
-.content {
-    animation-delay: 0.6s;
-}
 
 #temperature {
     width: 212px;
@@ -304,9 +296,7 @@ header {
     animation: fadeInn 1s ease-in-out forwards;
 }
 
-#temperature {
-    animation-delay: 1s;
-}
+
 
 #description {
     width: 293px;
@@ -321,9 +311,7 @@ header {
     animation: fadeInn 1s ease-in-out forwards;
 }
 
-#description {
-    animation-delay: 1.4s;
-}
+
 
 
 
@@ -465,7 +453,7 @@ footer {
     height: 131px;
     top: 689px;
     text-align: center;
-    
+
     position: relative;
     gap: 40px;
     margin: 0 auto;
