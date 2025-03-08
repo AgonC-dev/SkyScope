@@ -181,8 +181,7 @@ async function getWeather(city) {
                         </div>
                     </li>`;
       }
-      let city = document.getElementById("city");
-      city.style.color = "";
+     
       forecastHTML += "</ul>";
       document.getElementById("forecast").innerHTML = forecastHTML;
     } else {
