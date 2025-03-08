@@ -117,7 +117,8 @@ async function getWeather(city) {
 
 
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
-
+  let cityInput = document.getElementById("city");
+  cityInput.style.color = ""; 
   try {
     const response = await fetch(apiUrl);
     const data = await response.json();
@@ -180,18 +181,22 @@ async function getWeather(city) {
                         </div>
                     </li>`;
       }
-
+      let city = document.getElementById("city");
+      city.style.color = "";
       forecastHTML += "</ul>";
       document.getElementById("forecast").innerHTML = forecastHTML;
     } else {
-     let city = document.getElementById("city");
-     city.value = "City not found!"
-     city.style.color = "red";
+     cityInput.style.color = "red";
+     cityInput.value = "City not found!"
     }
   } catch (error) {
     alert("Error fetching weather data. Please try again later.");
   }
 }
+
+document.getElementById("city").addEventListener("input" ,function() {
+  this.style.color = "";
+})
 
 async function getLocationWeather() {
   if (navigator.geolocation) {
