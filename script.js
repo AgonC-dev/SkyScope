@@ -114,12 +114,15 @@ toggleContainer.addEventListener("click", toggleUnit);
 async function getWeather(city) {
   isUsingGeoLocation = false;
   lastSearchedCity = city; 
+
+
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
 
   try {
     const response = await fetch(apiUrl);
     const data = await response.json();
     if (data.cod === 200) {
+    
       document.getElementById("weather").classList.remove("hidden");
       document.getElementById(
         "location"
@@ -181,7 +184,9 @@ async function getWeather(city) {
       forecastHTML += "</ul>";
       document.getElementById("forecast").innerHTML = forecastHTML;
     } else {
-      alert("City not found. Please try again.");
+     let city = document.getElementById("city");
+     city.value = "City not found!"
+     city.style.color = "red";
     }
   } catch (error) {
     alert("Error fetching weather data. Please try again later.");
