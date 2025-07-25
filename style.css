@@ -7,7 +7,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     margin: 0;
-    animation: fadeIn 350ms ease-in-out;
+   
     overflow-x: hidden;
   }
 
