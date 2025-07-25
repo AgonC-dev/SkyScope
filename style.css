@@ -6,7 +6,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    animation: fadeIn 350ms ease-in-out forwards; 
+    animation: fadeIn 500ms ease-in-out forwards; 
   
   }
   
@@ -25,9 +25,6 @@ body {
   
   html {
    background-color: #0D235E;
-    
-
-   
   }
   
   * {
@@ -41,9 +38,7 @@ body {
       padding: 20px;
       position: relative;
       opacity: 0;
-      animation: fadeIn 1s ease-in-out forwards;
-    
-      
+      animation: fadeIn 500ms ease-in-out forwards;
   }
   
   
