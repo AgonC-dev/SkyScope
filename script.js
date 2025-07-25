@@ -15,8 +15,6 @@ const fahrenheitLabel = document.getElementById("fahrenheitLabel");
 const toggleContainer = document.getElementById("toggleContainer");
 const knob = document.querySelector(".knob");
 const forecastContainer = document.getElementById("forecast");
-const bgLazy = document.getElementById('bg-lazy');
-const bgLayer = document.getElementById('bg-layer');
 
 // ICON MAP
 const iconMap = {
@@ -26,6 +24,12 @@ const iconMap = {
   Rain: "fotografi/Rain.svg",
   Snow: "fotografi/bora.png",
 };
+
+
+
+
+
+
 
 function getWeatherIcon(description) {
   description = description.toLowerCase().trim();

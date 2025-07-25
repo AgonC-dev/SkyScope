@@ -1,18 +1,15 @@
 body {
+    margin: 0;
     height: 100%;
     width: 100%;
-    box-sizing: border-box;
     background-image: url('fotografi/background.webp');
     background-size: cover;
     background-position: center;
-    background-color: #003D9F;
     background-repeat: no-repeat;
-    margin: 0;
-   
-    overflow-x: hidden;
+
+  
   }
-
-
+  
   
   @keyframes fadeIn {
       from {
