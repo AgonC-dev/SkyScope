@@ -820,8 +820,14 @@ body {
   
   .title {
       margin: 0 auto;
+      font-size: 40px;
+      top: 24%;
       left: 0;
       right: 0;
+  }
+
+  .title span {
+    font-size: 40px;
   }
   
   
