@@ -1,948 +1,968 @@
 body {
-  background-image: url("fotografi/uriel-xtgONQzGgOE-unsplash\ 1.png");
-  height: 100%;
-  width: 100%;
-  box-sizing: border-box;
-  background-size: cover;
-  margin: 0;
-  opacity: 0; /* Start invisible */
-  animation: fadeIn 1.5s ease-in-out forwards;
-  overflow-x: hidden;
-
- 
-
-  /* Ensures it fills the screen height */
-
-}
-
-@keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px); /* Slight movement */
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-
-html {
- background-color: #0D235E;
- height: 118%;
- display: flex;
- justify-content: center;
- 
-}
-
-* {
-    box-sizing: border-box;
-    
-}
-
-.container {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-    position: relative;
-}
-
-
-header {
-    max-width: 828px;
-    height: 66px;
-    margin: 0 auto;
-    top: -50px;
-    border-radius: 70px;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: #FEFEFE;
-    align-items: center;
-    position: relative;
-}
-
-#getLocationWeather {
-    background-color: #003D9F;
-    width: 145px;
-    height: 46px;
-    border-radius: 60px;
-    padding: 15px 30px;
-    gap: 10px;
-    font-family: "Urbanist", serif;
-    border: none;
-    cursor: pointer;
-}
-
-#getLocationWeather span {
-    font-family: "Urbanist", serif;
-    width: 85px;
-    height: 16px;
-    font-size: 16px;
-    line-height: 16px;
-    color: #FEFEFE;
-    white-space: nowrap;
-}
-
-.logo {
-    width: 120px;
-    height: 24.66px;
-}
-
-.text-2 {
-    width: 128px;
-    height: 20px;
-    top: 470px;
-    margin: 0 auto;
-    font-family: "Urbanist", serif;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 20px;
-    text-align: center;
-    color: #FFFFFF;
-    position: relative;
-}
-
-#error {
-    display: none;
-    font-family: "Urbanist", serif;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 20px;
-    color: red;
-}
-
-
-.title {
-    max-width: 100%;
-    height: 116px;
-    top: 330px;
-    margin: 0 auto;
-    position: relative;
-    font-family: "Urbanist", serif;
-    font-display: swap;
-    font-weight: 700;
-    font-size: 54px;
-    line-height: 58px;
-    text-align: center;
-    color:#FFFFFF
-}
-
-.title span {
-    font-family: "Urbanist", serif;
-    font-weight: 400;
-    font-size: 54px;
-    line-height: 58px;
-    text-align: center;
-    color:#FFFFFF;
-    font-display: swap;
-}
-
- 
-
-.frame-2 {
-    max-width: 1077px;
+    background-image: url("fotografi/uriel-xtgONQzGgOE-unsplash\ 1.png");
+    height: 100%;
     width: 100%;
-    margin: 0 auto;
-    height: 126px;
-    top: 464px;
-    
-    border-radius: 90px;
-    padding: 40px;
-    gap: 10px;
-    background-color: rgba(255, 255, 255, 0.2);
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
     box-sizing: border-box;
-}
-
-#city {
-    max-width: 700px;
-    width: 100%;
-    height: 46px;
-    border-radius: 60px;
-    padding: 15px 30px;
-    gap: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-#city::placeholder {
-    width: 88px;
-    height: 18px;
-    font-family: "Urbanist", serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 16px;
-    color: #003D9F;
-}
-
-
-.toggleButton {
-    width: 86px;
-    height: 40px;
-    border-radius: 100px;
-    background-color: #003D9F;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-}
-
-.toggleLabel {
-    font-family: "Urbanist", serif;
-    font-size: 19px;
-    color: #FEFEFE;
-    background-color: transparent;
-    cursor: pointer;
-    border: none;
-    z-index: 2;
-    padding: 0 8px;
-    transition: background-color 0.1ms ease-in-out;
-}
-
-#unitToggle {
-    font-family: "Urbanist", serif;
-    width: 21px;
-    height: 16px;
-    top: 12px;
-    padding: 0;
-    left: 12px;
-    font-weight: 400;
-    font-size: 19px;
-    line-height: 16px;
-    position: absolute;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    color: #FEFEFE;
-}
-
-.knob {
-    width: 38px;
-    height: 36px;
-    top: 0px;
-    left: 43px;
+    background-size: cover;
     margin: 0;
-    position: relative;
-    border-radius: 100px;
-    background-color: #FFFFFF;
-    transition: left 0.3s ease-in-out;
-}
-
-#search {
-    max-width: 191px;
-    width: 100%;
-    height: 46px;
-    border-radius: 60px;
-    padding: 15px 70px;
-    gap: 10px;
-    background-color: #E6C705;
-    border: none;
-    cursor: pointer;
-}
-
-#search span {
-    width: 51px;
-    height: 16px;
-    font-family: "Urbanist", serif;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 16px;
-    text-align: center;
-}
-
-#weather {
-    max-width: 1077px;
-    height: 34px;
-    top: 540px;
-    justify-content: space-between;
-    display: flex;
-    position: relative;
-    margin: 0 auto;
-    opacity: 0; /* Initial state */
-    animation: fadeInn 1s ease-in-out forwards;
-}
-
-
-
-#location {
-    width: 128px;
-    height: 34px;
-    font-family: "Urbanist", serif;
-    font-weight: 700;
-    font-size: 25px;
-    line-height: 34px;
-    text-align: center;
-    color: #FFFFFF;
-    opacity: 0;
-    animation: fadeInn 1s ease-in-out forwards;
-}
-
-
-.content {
-    width: 433px;
-    height: 34px;
-    gap: 55px;
-    display: flex;
-    opacity: 0;
-    animation: fadeInn 1s ease-in-out forwards;
-}
-
-
-#temperature {
-    width: 212px;
-    height: 34px;
-    font-family: "Urbanist", serif;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 34px;
-    text-align: center;
-    color: #FFFFFF;
-    opacity: 0;
-    animation: fadeInn 1s ease-in-out forwards;
-}
-
-
-
-#description {
-    width: 293px;
-    height: 34px;
-    font-family: "Urbanist", serif;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 34px;
-    text-align: center;
-    color: #FFFFFF;
-    opacity: 0;
-    animation: fadeInn 1s ease-in-out forwards;
-}
-
-
-
-
-
-ul {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    padding: 0;
-    max-width: 1077px;
-    height: 585px;
-    top: 604px;
-    gap: 15px;
-    position: relative;
-    
-}
-
-li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1077px;
-    height: 60px;
-    border-radius: 10px;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.2);
-    animation: fadeInn 1s ease-in-out forwards;
-    opacity: 0;
-}
-
-#fahrenheitLabel {
-    visibility: hidden;
-}
-
-
-li:nth-child(1) {
-    animation-delay: 0.2s;
-}
-li:nth-child(2) {
-    animation-delay: 0.4s;
-}
-li:nth-child(3) {
-    animation-delay: 0.6s;
-}
-li:nth-child(4) {
-    animation-delay: 0.8s;
-}
-li:nth-child(5) {
-    animation-delay: 1s;
-}
-li:nth-child(6) {
-    animation-delay: 1.2s;
-}
-li:nth-child(7) {
-    animation-delay: 1.4s;
-}
-li:nth-child(8) {
-    animation-delay: 1.6s;
-}
-  
-
-  @keyframes fadeInn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-
-
-#forecast .forecast-time {
-    width: 241px;
-    height: 30px;
-    font-family: "Urbanist", serif;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 30px;
-    text-align: center;
-    color: #FFFFFF;
-}
-
-#forecast #forecast-hour {
-    font-family: "Urbanist", serif;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 30px;
-    text-align: center;
-    
-}
-
-.forecast-data {
-    max-width: 379px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.forecast-description {
-    max-width: 252px;
-    height: 30px;
-    font-family: "Urbanist", serif;
-    font-weight: 300;
-    font-size: 24px;
-    line-height: 30px;
-    text-align: center;
-    color: #FFFFFF;
-}
-
-.forecast-temp {
-    max-width: 87px;
-    height: 30px;
-    font-family: "Urbanist", serif;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 30px;
-    text-align: center;
-    color: #FFFFFF;
-}
-
-.forecast-unit {
-    font-family: "Urbanist", serif;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 30px;
-    text-align: center;
-    color: #FFFFFF;
-}
-
-.desImg {
-    width: 40px;
-    height: 40px;
-    justify-self: end;
-}
-
-footer {
-    max-width: 1077px;
-    height: 131px;
-    top: 689px;
-    text-align: center;
-
-    position: relative;
-    gap: 40px;
-    margin: 0 auto;
-   
-}
-
-.footer.logo {
-    width: 170px;
-    height: 35px;
-}
-
-hr {
-    max-width: 1077px;
-    margin: 0 auto;
-    color: rgba(255, 255, 255, 0.2);
-}
-
-.footer-p {
-    max-width: 1077px;
-    height: 16px;
-    font-family: "Urbanist", serif;
-    font-weight: 300;
-    font-size: 13px;
-    line-height: 16px;
-    text-align: center;
-    color: #FFFFFF;
-}
- 
-
-
-
-/* Styles for tablets and smaller screens (up to 1024px) */
-@media (max-width: 1024px) {
-    header {
-        width: 90%;
-       
-        top: 5%;
-        margin: 6% auto;
-    }
-
-    body {
-        min-height: 100%;
-        width: 100%;
-        height: 100%;
-        overflow-x: hidden;
-    }
-    
-    html {
-        height: auto;
-        min-height: 100vh;
-        overflow-x: hidden;
-    }
-
-    #weather {
-        width: 89%;
-        height: 34px;
-        top: 740px;
-        left: 6.5%;
-        justify-content: space-between;
-        display: flex;
-        position: relative;
-        
-    } 
-
-    .title {
-        font-size: 32px;
-   
-        
-        width: 95%;
-        position: absolute;
-      }
-
-
-    .frame-2 {
-        width: 95%;
-        top: 320px;
-      
-        margin: 0 auto;
-    }
-
-    .text-2 {
-        width: 100%;
-        height: 20px;
-        top: 350px;
-        left: auto;
-        margin: 0 auto;
-    }
-
-    #weather {
-        width: 90%;
-        height: 34px;
-        top: 440px;
-        
-        left: 1px;
-        justify-content: space-between;
-        display: flex;
-        position: relative;
-        
-    } 
-
-
-
-ul {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    padding: 0;
-    width: 90%;
-    height: 585px;
-    top: 504px;
-    gap: 15px;
-    position: relative;
-} 
-
-li {
-width: 100%;
-}
-
-
-
-    li {
-        width: 100%;
-      }
-
-      hr {
-        width: 100%
-      }
-
-    footer {
-        width: 90%;
-        left: auto;
-        margin: 0 auto;
-    }
-
-    .footer-p {
-        width: auto;
-        margin: 0 auto;
-        height: 16px;
-        padding: 1%;
-        color: #FFFFFF;
-        font-weight: 300;
-        font-size: 13px;
-      
-    }
-}
-
-/*ipads*/
-    
-    @media (max-width: 768px)  {
-        header {
-          width: 95%;
-          left: 2.5%;
-          padding: 5px;
-          top: 5%
-        }
-        
-        .title {
-          font-size: 32px;
-          top: 20%;
-          position: absolute;
-          left: 2.5%;
-          width: 95%;
-        }
-        
-        
-        .frame-2 {
-          width: 95%;
-        
-          padding: 15px;
-          gap: 35px;
-          top: 300px;
-          margin: 0 auto;
-          flex-direction: column; /* Stack the search input and toggle vertically if needed */
-} 
-        
-        #city {
-          width: 70%;
-          margin-bottom: 5px;
-        }
-        
-        .toggleButton {
-          width: 80px;  /* smaller toggle for mobile */
-          height: 35px;
-          left: 15%;
-          bottom: 29%;
-         
-          
-        }
-
-       
-        .text-2 {
-            width: 128px;
-            height: 20px;
-            top: 320px;
-            margin: 0 auto;
-        }
-        
-        .knob {
-          width: 32px;
-          height: 30px;
-        }
-        
-        #search {
-          width: 54%;
-          text-align: center;
-          margin-top: -15%;
-          margin-left: -13%; 
-        }
-        
-
-    #unitToggle {
-        top: 9px;
-    }
-       
-         #weather {
-                width: 80%;
-                height: 34px;
-                top: 440px;
-                
-                left: 1px;
-                justify-content: space-between;
-                display: flex;
-                position: relative;
-                
-            } 
-
-       
-
-        ul {
-            display: flex;
-            flex-direction: column;
-            margin: 0 auto;
-            padding: 0;
-            width: 90%;
-            height: 585px;
-            top: 504px;
-            left: 2px;
-            gap: 15px;
-            position: relative;
-      } 
-
-      li {
-        width: 100%;
-      }
-
-      html {
-        background-color: #0D235E;
-        height: 140%;
-       }
-    
-
-       footer {
-        width: 100%;
-        top: 300px;
-       }
-
-    
-    hr{
-        width: 78%;
-    }
-
-    .footer-p {
-        width: 100%;
-        height: 16px;
-        font-family: "Urbanist", serif;
-        font-weight: 300;
-        font-size: 13px;
-        line-height: 16px;
-        margin: 1%;
-        text-align: center;
-        color: #FFFFFF;
-        font-weight: 300;
-        font-size: 13px;
-      
-    }
-} 
-
-/* phones */ 
-
-@media (max-width: 480px) {
-    
-header {
-    width: 100%;
-    left: 1px;
-    top: 40px;
-}
-
-html, body {
+    opacity: 0; /* Start invisible */
+    animation: fadeIn 1.5s ease-in-out forwards;
     overflow-x: hidden;
-  width: 100%;
-}
-
-
-
-.frame-2 {
-   top: 500px;
-   width: 80%;
-   left: 44px;
-   position: absolute;
-   height: fit-content;
-   margin: 0;
-   gap: 10px;
-   padding: 4%;
-   display: flex;
-}
-
-#city {
-    width: 60%;
-    margin-right: 40%;
-    font-size: 16px;
-}
-
-#search {
-    width: 30%;
-    padding: 0;
-    min-width: 60px;
-    overflow: hidden;
-    height: 40%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 0;
-    position: absolute;
-    top: 65%;
-    left: 79%;
-}
-
-#search span {
-    font-family: "Urbanist", serif;
-    font-weight: 700;
-    font-size: 14px;  /* Adjust font size if needed */
-    line-height: 16px;
-    width: auto;
-    margin: 0;
-    padding: 0;
-}
-
-.title {
-    position: absolute;
-}
-
-
-
-
-
-
-.toggleButton {
-    margin-bottom: 1%;
-    width: 22.1%;
-    top: 52%;
-    left: 66%;
-    height: 39%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute; /* Change if it’s absolute */
-    z-index: 10;
-}
-
-.knob {
-  position: absolute;
-   margin-top: 1px;
-   width: 42%;
-   height: 95%;
- 
-}
-
-#unitToggle {
-   top: 8px;
-
-}
-
-#temperature, #description {
-    font-size: 14px;
-}
-
-#fahrenheitLabel {
-    display: flex;
-   
-    width: 80%;
-    justify-content: end;
-}
-
- 
-#weather {
-    width: 90%;
-    height: 34px;
-    top: 740px;
-    left: 24px;
-    
-    justify-content: space-evenly;
-    display: flex;
-    position: relative;
-    
-} 
-
-.text-2 {
-    width: 128px;
-    height: 20px;
-    top: 470px;
-    left: auto;
-}
-
-ul {
-    display: flex;
-    flex-direction: column;
-    margin: 0 ;
-    padding: 0;
-    width: 100%;
-    height: 585px;
-    top: 654px;
-    left: 2px;
-    gap: 15px;
-    position: relative;
-} 
-
-li {
-  max-width: 100%;
-  overflow: scroll;
-  white-space: nowrap;
-}
-
-.forecast-time {
-    width: 290px;
-    white-space: nowrap;
-}
-
-.forecast-data {
-    width: 100%;
-    margin-left: 3%;
-}
-
-
-
-
-    
-#weather {
-    width: 100%;
-    height: 134px;
-    top: 550px;
-    left: 1px;
-    flex-wrap: wrap;
-    
-}
-
-.content {
-    justify-content: space-between;
-    gap: 15px;
-    width: 70%;
-    flex-direction: column;
-    align-items: center;
-}
-
-html {
-    height: 115%;
-}
-
-#temperature {
-    margin: 0;
-}
-
-#location {
-    width: 100%;
-    margin: 0 auto;
-    white-space: nowrap;
-    
-    
-}
-
-footer {
-    top: 700px;
-}
-
-.footer-p {
-    margin: 1%;
-}
-
-}
   
+   
+  
+    /* Ensures it fills the screen height */
+  
+  }
+  
+  @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px); /* Slight movement */
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+  
+  html {
+   background-color: #0D235E;
+   height: 118%;
+   display: flex;
+   justify-content: center;
+   
+  }
+  
+  * {
+      box-sizing: border-box;
+      
+  }
+  
+  .container {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 20px;
+      position: relative;
+  }
+  
+  
+  header {
+      max-width: 828px;
+      height: 66px;
+      margin: 0 auto;
+      top: -50px;
+      border-radius: 70px;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: #FEFEFE;
+      align-items: center;
+      position: relative;
+  }
+  
+  #getLocationWeather {
+      background-color: #003D9F;
+      width: 145px;
+      height: 46px;
+      border-radius: 60px;
+      padding: 15px 30px;
+      gap: 10px;
+      font-family: "Urbanist", serif;
+      border: none;
+      cursor: pointer;
+  }
+  
+  #getLocationWeather span {
+      font-family: "Urbanist", serif;
+      width: 85px;
+      height: 16px;
+      font-size: 16px;
+      line-height: 16px;
+      color: #FEFEFE;
+      white-space: nowrap;
+  }
+  
+  .logo {
+      width: 120px;
+      height: 24.66px;
+  }
+  
+  .text-2 {
+      width: 128px;
+      height: 20px;
+      top: 470px;
+      margin: 0 auto;
+      font-family: "Urbanist", serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 20px;
+      text-align: center;
+      color: #FFFFFF;
+      position: relative;
+  }
+  
+  #error {
+      display: none;
+      font-family: "Urbanist", serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 20px;
+      color: red;
+  }
+  
+  
+  .title {
+      max-width: 100%;
+      height: 116px;
+      top: 330px;
+      margin: 0 auto;
+      position: relative;
+      font-family: "Urbanist", serif;
+      font-display: swap;
+      font-weight: 700;
+      font-size: 54px;
+      line-height: 58px;
+      text-align: center;
+      color:#FFFFFF
+  }
+  
+  .title span {
+      font-family: "Urbanist", serif;
+      font-weight: 400;
+      font-size: 54px;
+      line-height: 58px;
+      text-align: center;
+      color:#FFFFFF;
+      font-display: swap;
+  }
+  
+   
+  
+  .frame-2 {
+      max-width: 1077px;
+      width: 100%;
+      margin: 0 auto;
+      height: 126px;
+      top: 464px;
+      
+      border-radius: 90px;
+      padding: 40px;
+      gap: 10px;
+      background-color: rgba(255, 255, 255, 0.2);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      box-sizing: border-box;
+  }
+  
+  #city {
+      max-width: 700px;
+      width: 100%;
+      height: 46px;
+      border-radius: 60px;
+      padding: 15px 30px;
+      gap: 10px;
+      border: none;
+      cursor: pointer;
+  }
+  
+  #city::placeholder {
+      width: 88px;
+      height: 18px;
+      font-family: "Urbanist", serif;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 16px;
+      color: #003D9F;
+  }
+  
+  
+  .toggleButton {
+      width: 76px;
+      height: 40px;
+      border-radius: 100px;
+      background-color: #003D9F;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+  }
+  
+  .toggleLabel {
+      font-family: "Urbanist", serif;
+      font-size: 19px;
+      color: #FEFEFE;
+      background-color: transparent;
+      cursor: pointer;
+      border: none;
+      z-index: 2;
+      padding: 0 8px;
+      transition: background-color 0.1ms ease-in-out;
+  }
+  
+  #unitToggle {
+      font-family: "Urbanist", serif;
+      width: 21px;
+      height: 16px;
+      top: 12px;
+      padding: 0;
+      left: 12px;
+      font-weight: 400;
+      font-size: 19px;
+      line-height: 16px;
+      position: absolute;
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      color: #FEFEFE;
+  }
+  
+  .knob {
+      width: 38px;
+      height: 36px;
+      top: 0px;
+      left: 43px;
+      margin: 0;
+      position: relative;
+      border-radius: 100px;
+      background-color: #FFFFFF;
+      transition: left 0.3s ease-in-out;
+  }
+  
+  #search {
+      max-width: 191px;
+      width: 100%;
+      height: 46px;
+      border-radius: 60px;
+      padding: 15px 70px;
+      gap: 10px;
+      background-color: #E6C705;
+      border: none;
+      cursor: pointer;
+  }
+  
+  #search span {
+      width: 51px;
+      height: 16px;
+      font-family: "Urbanist", serif;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 16px;
+      text-align: center;
+  }
+  
+  #weather {
+      max-width: 1077px;
+      height: 34px;
+      top: 540px;
+      justify-content: space-between;
+      display: flex;
+      position: relative;
+      margin: 0 auto;
+      opacity: 0; /* Initial state */
+      animation: fadeInn 1s ease-in-out forwards;
+  }
+  
+  
+  
+  #location {
+      width: 128px;
+      height: 34px;
+      font-family: "Urbanist", serif;
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 34px;
+      text-align: center;
+      color: #FFFFFF;
+      opacity: 0;
+      animation: fadeInn 1s ease-in-out forwards;
+  }
+  
+  
+  .content {
+      width: 433px;
+      height: 34px;
+      gap: 55px;
+      display: flex;
+      opacity: 0;
+      animation: fadeInn 1s ease-in-out forwards;
+  }
+  
+  
+  #temperature {
+      width: 212px;
+      height: 34px;
+      font-family: "Urbanist", serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 34px;
+      text-align: center;
+      color: #FFFFFF;
+      opacity: 0;
+      animation: fadeInn 1s ease-in-out forwards;
+  }
+  
+  
+  
+  #description {
+      width: 293px;
+      height: 34px;
+      font-family: "Urbanist", serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 34px;
+      text-align: center;
+      color: #FFFFFF;
+      opacity: 0;
+      animation: fadeInn 1s ease-in-out forwards;
+  }
+  
+  
+  
+  
+  
+  ul {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      padding: 0;
+      max-width: 1077px;
+      height: 585px;
+      top: 604px;
+      gap: 15px;
+      position: relative;
+      
+  }
+  
+  li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1077px;
+      height: 60px;
+      border-radius: 10px;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.2);
+      animation: fadeInn 1s ease-in-out forwards;
+      opacity: 0;
+  }
+  
+  #fahrenheitLabel {
+      visibility: hidden;
+  }
+  
+  
+  li:nth-child(1) {
+      animation-delay: 0.2s;
+  }
+  li:nth-child(2) {
+      animation-delay: 0.4s;
+  }
+  li:nth-child(3) {
+      animation-delay: 0.6s;
+  }
+  li:nth-child(4) {
+      animation-delay: 0.8s;
+  }
+  li:nth-child(5) {
+      animation-delay: 1s;
+  }
+  li:nth-child(6) {
+      animation-delay: 1.2s;
+  }
+  li:nth-child(7) {
+      animation-delay: 1.4s;
+  }
+  li:nth-child(8) {
+      animation-delay: 1.6s;
+  }
+    
+  
+    @keyframes fadeInn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  
+  
+  
+  #forecast .forecast-time {
+      width: 241px;
+      height: 30px;
+      font-family: "Urbanist", serif;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 30px;
+      text-align: center;
+      color: #FFFFFF;
+  }
+  
+  #forecast #forecast-hour {
+      font-family: "Urbanist", serif;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 30px;
+      text-align: center;
+      
+  }
+  
+  .forecast-data {
+      max-width: 379px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+  }
+  
+  .forecast-description {
+      max-width: 252px;
+      height: 30px;
+      font-family: "Urbanist", serif;
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 30px;
+      text-align: center;
+      color: #FFFFFF;
+  }
+  
+  .forecast-temp {
+      max-width: 87px;
+      height: 30px;
+      font-family: "Urbanist", serif;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 30px;
+      text-align: center;
+      color: #FFFFFF;
+  }
+  
+  .forecast-unit {
+      font-family: "Urbanist", serif;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 30px;
+      text-align: center;
+      color: #FFFFFF;
+  }
+  
+  .desImg {
+      width: 40px;
+      height: 40px;
+      justify-self: end;
+  }
+  
+  footer {
+      max-width: 1077px;
+      height: 131px;
+      top: 689px;
+      text-align: center;
+  
+      position: relative;
+      gap: 40px;
+      margin: 0 auto;
+     
+  }
+  
+  .footer.logo {
+      width: 170px;
+      height: 35px;
+  }
+  
+  hr {
+      max-width: 1077px;
+      margin: 0 auto;
+      color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .footer-p {
+      max-width: 1077px;
+      height: 16px;
+      font-family: "Urbanist", serif;
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 16px;
+      text-align: center;
+      color: #FFFFFF;
+  }
+   
+  
+  
+  
+  /* Styles for tablets and smaller screens (up to 1024px) */
+  @media (max-width: 1024px) {
+      header {
+          width: 90%;
+         
+          top: 5%;
+          margin: 6% auto;
+      }
+  
+      body {
+          min-height: 100%;
+          width: 100%;
+          height: 100%;
+          overflow-x: hidden;
+      }
+      
+      html {
+          height: auto;
+          min-height: 100vh;
+          overflow-x: hidden;
+      }
+  
+      #weather {
+          width: 89%;
+          height: 34px;
+          top: 740px;
+          left: 6.5%;
+          justify-content: space-between;
+          display: flex;
+          position: relative;
+          
+      } 
+  
+      .title {
+          font-size: 32px;
+     
+          
+          width: 95%;
+          position: absolute;
+        }
+  
+  
+      .frame-2 {
+          width: 95%;
+          top: 320px;
+        
+          margin: 0 auto;
+      }
+  
+      .text-2 {
+          width: 100%;
+          height: 20px;
+          top: 350px;
+          left: auto;
+          margin: 0 auto;
+      }
+  
+      #weather {
+          width: 90%;
+          height: 34px;
+          top: 440px;
+          
+          left: 1px;
+          justify-content: space-between;
+          display: flex;
+          position: relative;
+          
+      } 
+  
+  
+  
+  ul {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      padding: 0;
+      width: 90%;
+      height: 585px;
+      top: 504px;
+      gap: 15px;
+      position: relative;
+  } 
+  
+  li {
+  width: 100%;
+  }
+  
+  
+  
+      li {
+          width: 100%;
+        }
+  
+        hr {
+          width: 100%
+        }
+  
+      footer {
+          width: 90%;
+          left: auto;
+          margin: 0 auto;
+      }
+  
+      .footer-p {
+          width: auto;
+          margin: 0 auto;
+          height: 16px;
+          padding: 1%;
+          color: #FFFFFF;
+          font-weight: 300;
+          font-size: 13px;
+        
+      }
+  }
+  
+  /*ipads*/
+      
+      @media (max-width: 768px)  {
+          header {
+            width: 95%;
+            left: 2.5%;
+            padding: 5px;
+            top: 5%
+          }
+          
+          .title {
+            font-size: 32px;
+            top: 25%;
+           
+            margin: 0 auto;
+            width: 95%;
+          }
+          
+          
+          .frame-2 {
+            width: 100%;
+          
+            padding: 15px;
+            gap: 35px;
+           
+            margin: 0 auto;
+            flex-direction: column; /* Stack the search input and toggle vertically if needed */
+  } 
+          
+          #city {
+            width: 70%;
+            margin-bottom: 5px;
+          }
+          
+          .toggleButton {
+            width: 71px;  /* smaller toggle for mobile */
+            height: 40px;
+            left: 15%;
+            bottom: 29%;
+           
+            
+          }
 
+          .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+            margin: 0;
+            padding: 0;
+            flex-direction: column;
+          }
+
+          #location {
+            margin: 0;
+          }
+  
+         
+          .text-2 {
+              width: 128px;
+              height: 20px;
+              
+              margin: 0 auto;
+          }
+          
+          .knob {
+            width: 62px;
+            height: 30px;
+          }
+          
+          #search {
+            width: 54%;
+            text-align: center;
+            margin-top: -15%;
+            margin-left: -13%; 
+          }
+          
+  
+      #unitToggle {
+          top: 9px;
+      }
+         
+           #weather {
+                  width: 80%;
+                  height: 34px;
+                  top: 440px;
+                  
+                  left: 1px;
+                  justify-content: space-between;
+                  display: flex;
+                  position: relative;
+                  
+              } 
+  
+         
+  
+          ul {
+              display: flex;
+              flex-direction: column;
+              margin: 0 auto;
+              padding: 0;
+              width: 90%;
+              height: 585px;
+              top: 504px;
+              left: 2px;
+              gap: 15px;
+              position: relative;
+        } 
+  
+        li {
+          width: 100%;
+        }
+  
+        html {
+          background-color: #0D235E;
+          height: 140%;
+         }
+      
+  
+         footer {
+          width: 100%;
+          top: 300px;
+         }
+  
+      
+      hr{
+          width: 78%;
+      }
+  
+      .footer-p {
+          width: 100%;
+          height: 16px;
+          font-family: "Urbanist", serif;
+          font-weight: 300;
+          font-size: 13px;
+          line-height: 16px;
+          margin: 1%;
+          text-align: center;
+          color: #FFFFFF;
+          font-weight: 300;
+          font-size: 13px;
+        
+      }
+  } 
+  
+  /* phones */ 
+  
+  @media (max-width: 480px) {
+      
+  header {
+      width: 100%;
+      left: 1px;
+      top: 40px;
+  }
+  
+  html, body {
+      overflow-x: hidden;
+    width: 100%;
+  }
+  
+  
+  
+  .frame-2 {
+    flex-direction: row;
+    flex-wrap: wrap;
+     width: 100%;
+     height: auto;
+     margin-top: 140px;
+     margin-left: auto;
+     margin-right: auto;
+     margin-bottom: 0;
+     gap: 10px;
+     padding: 5%;
+     display: flex;
+  }
+  
+  #city {
+      width: 90%;
+       
+      font-size: 16px;
+  }
+  
+  #search {
+      width: 50%;
+      padding: 0;
+      min-width: 60px;
+      overflow: hidden;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      
+    
+  }
+  
+  #search span {
+      font-family: "Urbanist", serif;
+      font-weight: 700;
+      font-size: 14px;  /* Adjust font size if needed */
+      line-height: 16px;
+      width: auto;
+      margin: 0;
+      padding: 0;
+  }
+  
+  .title {
+      position: absolute;
+  }
+  
+  
+  .content {
+    margin-top: 0;
+    top: 0;
+  }
+  
+  
+  
+  .toggleButton {
+     
+      width: 21%;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      top: 0;
+      margin-left: 10%;
+      height: 35px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+  }
+  
+  .knob {
+    
+     margin-top: 1px;
+     width: 62px;
+     height: 32px;
+   
+  }
+  
+  #unitToggle {
+     top: 8px;
+  
+  }
+  
+  #temperature, #description {
+      font-size: 14px;
+  }
+  
+  #fahrenheitLabel {
+      display: flex;
+     
+      width: 80%;
+      justify-content: end;
+  }
+  
+   
+  #weather {
+      width: 90%;
+      height: 34px;
+      top: 0;
+      margin: 0;
+      bottom: 0;
+      justify-content: space-evenly;
+      display: flex;
+      
+      
+  } 
+  
+  .text-2 {
+      width: 128px;
+      height: 20px;
+      margin-bottom: 0;
+      
+  }
+  
+  ul {
+      display: flex;
+      flex-direction: column;
+      margin: 0 ;
+      padding: 0;
+      width: 100%;
+      height: 585px;
+      top: 654px;
+      left: 2px;
+      gap: 15px;
+      position: relative;
+  } 
+  
+  li {
+    max-width: 100%;
+    overflow: scroll;
+    white-space: nowrap;
+  }
+  
+  .forecast-time {
+      width: 290px;
+      white-space: nowrap;
+  }
+  
+  .forecast-data {
+      width: 100%;
+      margin-left: 3%;
+  }
+  
+  
+  
+  
+      
+  #weather {
+      width: 100%;
+      height: 134px;
+      top: 550px;
+      left: 1px;
+      flex-wrap: wrap;
+      
+  }
+  
+  .content {
+      justify-content: space-between;
+      gap: 15px;
+      width: 70%;
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  html {
+      height: 115%;
+  }
+  
+  #temperature {
+      margin: 0;
+  }
+  
+  #location {
+      width: 100%;
+      margin: 0 auto;
+      white-space: nowrap;
+      
+      
+  }
+  
+  footer {
+      top: 700px;
+  }
+  
+  .footer-p {
+      margin: 1%;
+  }
+  
+  }
+    
+  
