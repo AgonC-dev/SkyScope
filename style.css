@@ -5,8 +5,7 @@ body {
     box-sizing: border-box;
     background-size: cover;
     margin: 0;
-    opacity: 0; /* Start invisible */
-    animation: fadeIn 1.5s ease-in-out forwards;
+ 
     overflow-x: hidden;
   
    
@@ -45,6 +44,9 @@ body {
       margin: 0 auto;
       padding: 20px;
       position: relative;
+      opacity: 0;
+      animation: fadeIn 1.5s ease-in-out forwards;
+      animation-delay: 0.1s; /* optional delay */
   }
   
   
