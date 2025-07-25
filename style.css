@@ -2,9 +2,12 @@ body {
     height: 100%;
     width: 100%;
     box-sizing: border-box;
+    background-image: url('fotografi/background.webp');
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     margin: 0;
-    
+    transition: background-image 0.8s ease-in-out;
     overflow-x: hidden;
   }
 
@@ -40,8 +43,8 @@ body {
       margin: 0 auto;
       padding: 20px;
       position: relative;
-      opacity: 1;
-      /*animation: fadeIn 1.5s ease-in-out forwards;
+      opacity: 0;
+      animation: fadeIn 1.5s ease-in-out forwards;
       animation-delay: 0.1s; /* optional delay */
   }
   

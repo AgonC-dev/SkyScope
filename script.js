@@ -16,6 +16,7 @@ const toggleContainer = document.getElementById("toggleContainer");
 const knob = document.querySelector(".knob");
 const forecastContainer = document.getElementById("forecast");
 const bgLazy = document.getElementById('bg-lazy');
+const bgLayer = document.getElementById('bg-layer');
 
 // ICON MAP
 const iconMap = {
@@ -53,10 +54,7 @@ window.addEventListener("load", () => {
   fahrenheitLabel.style.visibility = "hidden";
 });
 
-bgLazy.addEventListener('load', () => {
-  document.body.style.backgroundImage = `url('${bgLazy.src}')`;
-  document.body.classList.add('loaded');
-});
+
 
 cityInput.addEventListener(
   "input",
