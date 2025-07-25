@@ -6,7 +6,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
+    animation: fadeIn 500ms ease-in-out forwards; 
   
   }
   
@@ -25,9 +25,8 @@ body {
   
   html {
    background-color: #0D235E;
-   height: 118%;
-   display: flex;
-   justify-content: center;
+    
+
    
   }
   
