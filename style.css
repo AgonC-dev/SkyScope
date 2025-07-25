@@ -1,17 +1,17 @@
 body {
-    background-image: url("fotografi/uriel-xtgONQzGgOE-unsplash\ 1.png");
+    background-image: url('small-placeholder.jpg');
     height: 100%;
     width: 100%;
     box-sizing: border-box;
     background-size: cover;
     margin: 0;
- 
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
     overflow-x: hidden;
-  
-   
-  
-    /* Ensures it fills the screen height */
-  
+  }
+
+  body.loaded {
+    opacity: 1;
   }
   
   @keyframes fadeIn {

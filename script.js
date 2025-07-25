@@ -15,6 +15,7 @@ const fahrenheitLabel = document.getElementById("fahrenheitLabel");
 const toggleContainer = document.getElementById("toggleContainer");
 const knob = document.querySelector(".knob");
 const forecastContainer = document.getElementById("forecast");
+const bgLazy = document.getElementById('bg-lazy');
 
 // ICON MAP
 const iconMap = {
@@ -50,6 +51,11 @@ window.addEventListener("load", () => {
   toggleContainer.style.backgroundColor = "#003D9F";
   unitToggle.style.visibility = "visible";
   fahrenheitLabel.style.visibility = "hidden";
+});
+
+bgLazy.addEventListener('load', () => {
+  document.body.style.backgroundImage = `url('${bgLazy.src}')`;
+  document.body.classList.add('loaded');
 });
 
 cityInput.addEventListener(
