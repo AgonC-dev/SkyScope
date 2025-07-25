@@ -1,12 +1,11 @@
 body {
-    background-image: url('small-placeholder.jpg');
     height: 100%;
     width: 100%;
     box-sizing: border-box;
     background-size: cover;
     margin: 0;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 300ms ease-in-out;
     overflow-x: hidden;
   }
 
