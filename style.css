@@ -5,6 +5,7 @@ body {
     background-image: url('fotografi/background.webp');
     background-size: cover;
     background-position: center;
+    background-color: #003D9F;
     background-repeat: no-repeat;
     margin: 0;
    
@@ -45,6 +46,7 @@ body {
       position: relative;
       opacity: 0;
       animation: fadeIn 1.5s ease-in-out forwards;
+    
       
   }
   
@@ -268,6 +270,7 @@ body {
       margin: 0 auto;
       opacity: 0; /* Initial state */
       animation: fadeInn 1s ease-in-out forwards;
+      animation-delay: 2s;
   }
   
   
@@ -283,6 +286,7 @@ body {
       color: #FFFFFF;
       opacity: 0;
       animation: fadeInn 1s ease-in-out forwards;
+      animation-delay: 2s;
   }
   
   
@@ -322,6 +326,7 @@ body {
       color: #FFFFFF;
       opacity: 0;
       animation: fadeInn 1s ease-in-out forwards;
+      animation-delay: 2s;
   }
   
   
