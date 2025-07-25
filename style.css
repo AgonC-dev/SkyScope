@@ -7,7 +7,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     margin: 0;
-    transition: background-image 0.8s ease-in-out;
+    animation: fadeIN 500ms ease-in-out;
     overflow-x: hidden;
   }
 
@@ -45,7 +45,7 @@ body {
       position: relative;
       opacity: 0;
       animation: fadeIn 1.5s ease-in-out forwards;
-      animation-delay: 0.1s; /* optional delay */
+      
   }
   
   
