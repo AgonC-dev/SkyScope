@@ -819,7 +819,9 @@ body {
   }
   
   .title {
-      position: absolute;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
   }
   
   
@@ -831,8 +833,7 @@ body {
   
   
   .toggleButton {
-     
-      width: 21%;
+      width: 26%;
       left: 0;
       bottom: 0;
       right: 0;
@@ -849,7 +850,7 @@ body {
     
      margin-top: 1px;
      width: 62px;
-     height: 32px;
+     height: 30px;
    
   }
   
