@@ -147,7 +147,7 @@ async function getWeather(city) {
       }, 300);
     });
   } catch {
-    alert("Error fetching weather data. Please try again later.");
+    alert("Server is down right now. Please try again later!");
   }
 }
 
