@@ -1,4 +1,3 @@
-const apiKey = "2408ae23b02c6cbe85ac54b455cb1289";
 let unit = "metric";
 
 let isUsingGeoLocation = false;
@@ -16,7 +15,6 @@ const toggleContainer = document.getElementById("toggleContainer");
 const knob = document.querySelector(".knob");
 const forecastContainer = document.getElementById("forecast");
 
-// ICON MAP
 const iconMap = {
   Clear: "fotografi/Group 1.png",
   Clouds: "fotografi/ret.png",
@@ -24,12 +22,6 @@ const iconMap = {
   Rain: "fotografi/Rain.svg",
   Snow: "fotografi/bora.png",
 };
-
-
-
-
-
-
 
 function getWeatherIcon(description) {
   description = description.toLowerCase().trim();
@@ -57,8 +49,6 @@ window.addEventListener("load", () => {
   unitToggle.style.visibility = "visible";
   fahrenheitLabel.style.visibility = "hidden";
 });
-
-
 
 cityInput.addEventListener(
   "input",
@@ -113,10 +103,7 @@ function toggleUnit() {
   }
 }
 
-// Click event for toggle
 toggleContainer.addEventListener("click", toggleUnit);
-
-// Keyboard accessibility (Enter & Space keys)
 toggleContainer.addEventListener("keydown", (e) => {
   if (e.key === "Enter" || e.key === " ") {
     e.preventDefault();
@@ -137,14 +124,14 @@ async function getWeather(city) {
   lastSearchedCity = city;
   cityInput.style.color = "";
 
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unit}`;
-  const forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${unit}`;
+  const apiUrl = `/api/weather?city=${encodeURIComponent(city)}&units=${unit}`;
+  const forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(city)}&units=${unit}&appid=YOUR_KEY`; // We'll secure this next
 
   try {
     const response = await fetch(apiUrl);
     const data = await response.json();
 
-    if (data.cod !== 200) {
+    if (data.cod && data.cod !== 200) {
       cityInput.style.color = "red";
       cityInput.value = "City not found!";
       return;
@@ -157,6 +144,7 @@ async function getWeather(city) {
     unitToggle.disabled = false;
     fahrenheitLabel.disabled = false;
 
+    // Replace this forecast request with a secure endpoint if needed
     const forecastResponse = await fetch(forecastApiUrl);
     const forecastData = await forecastResponse.json();
 
@@ -226,14 +214,14 @@ async function getLocationWeather() {
 
       const lat = position.coords.latitude;
       const lon = position.coords.longitude;
-      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
-      const forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
+      const apiUrl = `/api/weather?lat=${lat}&lon=${lon}&units=${unit}`;
+      const forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=YOUR_KEY&units=${unit}`; // Also move to backend if you want
 
       try {
         const response = await fetch(apiUrl);
         const data = await response.json();
 
-        if (data.cod !== 200) {
+        if (data.cod && data.cod !== 200) {
           alert("Unable to get weather data based on your location.");
           return;
         }
