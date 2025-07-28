@@ -3,7 +3,6 @@ let unit = "metric";
 let isUsingGeoLocation = false;
 let lastSearchedCity = "";
 
-// Cache DOM elements
 const cityInput = document.getElementById("city");
 const weatherDiv = document.getElementById("weather");
 const locationElem = document.getElementById("location");
@@ -76,8 +75,6 @@ cityInput.addEventListener("input", () => {
   cityInput.style.color = "";
 });
 
-// --- TOGGLE UNIT FUNCTION AND EVENT LISTENERS ---
-
 function toggleUnit() {
   unit = unit === "metric" ? "imperial" : "metric";
 
@@ -125,31 +122,26 @@ async function getWeather(city) {
   cityInput.style.color = "";
 
   const apiUrl = `/api/weather?city=${encodeURIComponent(city)}&units=${unit}`;
-  const forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(city)}&units=${unit}&appid=YOUR_KEY`; // We'll secure this next
 
   try {
     const response = await fetch(apiUrl);
     const data = await response.json();
 
-    if (data.cod && data.cod !== 200) {
+    if (data.current.cod && data.current.cod !== 200) {
       cityInput.style.color = "red";
       cityInput.value = "City not found!";
       return;
     }
 
     weatherDiv.classList.remove("hidden");
-    locationElem.textContent = `${data.name}, ${data.sys.country}`;
-    temperatureElem.textContent = `Temperature: ${Math.round(data.main.temp)}°${unit === "metric" ? "C" : "F"}`;
-    descriptionElem.textContent = `Description: ${data.weather[0].description}`;
+    locationElem.textContent = `${data.current.name}, ${data.current.sys.country}`;
+    temperatureElem.textContent = `Temperature: ${Math.round(data.current.main.temp)}°${unit === "metric" ? "C" : "F"}`;
+    descriptionElem.textContent = `Description: ${data.current.weather[0].description}`;
     unitToggle.disabled = false;
     fahrenheitLabel.disabled = false;
 
-    // Replace this forecast request with a secure endpoint if needed
-    const forecastResponse = await fetch(forecastApiUrl);
-    const forecastData = await forecastResponse.json();
-
     onIdle(() => {
-      renderForecast(forecastData.list);
+      renderForecast(data.forecast.list);
       setTimeout(() => {
         weatherDiv.scrollIntoView({ behavior: "smooth" });
       }, 300);
@@ -215,30 +207,26 @@ async function getLocationWeather() {
       const lat = position.coords.latitude;
       const lon = position.coords.longitude;
       const apiUrl = `/api/weather?lat=${lat}&lon=${lon}&units=${unit}`;
-      const forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=YOUR_KEY&units=${unit}`; // Also move to backend if you want
 
       try {
         const response = await fetch(apiUrl);
         const data = await response.json();
 
-        if (data.cod && data.cod !== 200) {
+        if (data.current.cod && data.current.cod !== 200) {
           alert("Unable to get weather data based on your location.");
           return;
         }
 
-        cityInput.value = data.name;
+        cityInput.value = data.current.name;
         weatherDiv.classList.remove("hidden");
-        locationElem.textContent = `${data.name}, ${data.sys.country}`;
-        temperatureElem.textContent = `Temperature: ${Math.round(data.main.temp)}°${unit === "metric" ? "C" : "F"}`;
-        descriptionElem.textContent = `Description: ${data.weather[0].description}`;
+        locationElem.textContent = `${data.current.name}, ${data.current.sys.country}`;
+        temperatureElem.textContent = `Temperature: ${Math.round(data.current.main.temp)}°${unit === "metric" ? "C" : "F"}`;
+        descriptionElem.textContent = `Description: ${data.current.weather[0].description}`;
         unitToggle.disabled = false;
         fahrenheitLabel.disabled = false;
 
-        const forecastResponse = await fetch(forecastApiUrl);
-        const forecastData = await forecastResponse.json();
-
         onIdle(() => {
-          renderForecast(forecastData.list);
+          renderForecast(data.forecast.list);
           setTimeout(() => {
             weatherDiv.scrollIntoView({ behavior: "smooth" });
           }, 300);
