@@ -1,5 +1,4 @@
 let unit = "metric";
-
 let isUsingGeoLocation = false;
 let lastSearchedCity = "";
 
