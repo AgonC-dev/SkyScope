@@ -63,7 +63,7 @@ export default async function handler(req, res) {
     ]);
 
     if (!currentRes.ok || !forecastRes.ok) {
-      return res.status(500).json({ error: 'OpenWeather fetch failed, Too many tries' });
+      return res.status(500).json({ error: 'City not found' });
     }
 
     const [currentData, forecastData] = await Promise.all([
