@@ -27,7 +27,7 @@ export default async function handler(req, res) {
 
     if (!success) {
       return res.status(429).json({
-        error: 'Rate limit exceeded. Please wait a minute before retrying.',
+        error: alert('Rate limit exceeded. Please wait a minute before retrying.'),
       });
     }
   } catch (err) {
@@ -63,7 +63,7 @@ export default async function handler(req, res) {
     ]);
 
     if (!currentRes.ok || !forecastRes.ok) {
-      return res.status(500).json({ error: 'OpenWeather fetch failed.' });
+      return res.status(500).json({ error: alert('OpenWeather fetch failed, Too many tries') });
     }
 
     const [currentData, forecastData] = await Promise.all([
