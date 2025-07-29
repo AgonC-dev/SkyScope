@@ -27,7 +27,7 @@ export default async function handler(req, res) {
 
     if (!success) {
       return res.status(429).json({
-        error: alert('Rate limit exceeded. Please wait a minute before retrying.'),
+        error: 'Rate limit exceeded. Please wait a minute before retrying.',
       });
     }
   } catch (err) {
