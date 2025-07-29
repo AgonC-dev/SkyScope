@@ -1,3 +1,4 @@
+const apiKey = "2408ae23b02c6cbe85ac54b455cb1289";
 let unit = "metric";
 let isUsingGeoLocation = false;
 let lastSearchedCity = "";
@@ -7,11 +8,11 @@ const weatherDiv = document.getElementById("weather");
 const locationElem = document.getElementById("location");
 const temperatureElem = document.getElementById("temperature");
 const descriptionElem = document.getElementById("description");
+const forecastContainer = document.getElementById("forecast");
 const unitToggle = document.getElementById("unitToggle");
 const fahrenheitLabel = document.getElementById("fahrenheitLabel");
 const toggleContainer = document.getElementById("toggleContainer");
 const knob = document.querySelector(".knob");
-const forecastContainer = document.getElementById("forecast");
 
 const iconMap = {
   Clear: "fotografi/Group 1.png",
@@ -23,12 +24,12 @@ const iconMap = {
 
 function getWeatherIcon(description) {
   description = description.toLowerCase().trim();
-  if (description.startsWith("clear")) return iconMap.Clear;
-  if (description.startsWith("cloud")) return iconMap.Clouds;
-  if (description.startsWith("partly")) return iconMap["Partly Cloudy"];
-  if (description.startsWith("rain")) return iconMap.Rain;
-  if (description.startsWith("snow")) return iconMap.Snow;
-  return iconMap.Clear;
+  if (description.includes("clear")) return iconMap["Clear"];
+  if (description.includes("cloud")) return iconMap["Clouds"];
+  if (description.includes("partly")) return iconMap["Partly Cloudy"];
+  if (description.includes("rain")) return iconMap["Rain"];
+  if (description.includes("snow")) return iconMap["Snow"];
+  return iconMap["Clear"];
 }
 
 function debounce(func, delay) {
@@ -39,13 +40,33 @@ function debounce(func, delay) {
   };
 }
 
-window.addEventListener("load", () => {
+window.onload = () => {
   unitToggle.disabled = true;
   fahrenheitLabel.disabled = true;
   knob.style.left = "42px";
   toggleContainer.style.backgroundColor = "#003D9F";
   unitToggle.style.visibility = "visible";
   fahrenheitLabel.style.visibility = "hidden";
+};
+
+toggleContainer.addEventListener("click", toggleUnit);
+document.getElementById("getLocationWeather").addEventListener("click", getLocationWeather);
+document.getElementById("search").addEventListener("click", () => {
+  const city = cityInput.value.trim();
+  if (city) getWeather(city);
+  else alert("Please enter a city name.");
+});
+
+cityInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    const city = cityInput.value.trim();
+    if (city) getWeather(city);
+    else alert("Please enter a city name.");
+  }
+});
+
+cityInput.addEventListener("input", function () {
+  this.style.color = "";
 });
 
 cityInput.addEventListener(
@@ -56,27 +77,8 @@ cityInput.addEventListener(
   }, 700)
 );
 
-document.getElementById("search").addEventListener("click", () => {
-  const city = cityInput.value.trim();
-  if (city) getWeather(city);
-  else alert("Please enter a city name.");
-});
-
-cityInput.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    const city = cityInput.value.trim();
-    if (city) getWeather(city);
-    else alert("Please enter a city name.");
-  }
-});
-
-cityInput.addEventListener("input", () => {
-  cityInput.style.color = "";
-});
-
 function toggleUnit() {
   unit = unit === "metric" ? "imperial" : "metric";
-
   unitToggle.disabled = false;
   fahrenheitLabel.disabled = false;
 
@@ -86,7 +88,7 @@ function toggleUnit() {
     unitToggle.style.visibility = "hidden";
     fahrenheitLabel.style.visibility = "visible";
   } else {
-    knob.style.left = "35px";
+    knob.style.left = "42px";
     toggleContainer.style.backgroundColor = "#003D9F";
     unitToggle.style.visibility = "visible";
     fahrenheitLabel.style.visibility = "hidden";
@@ -99,54 +101,47 @@ function toggleUnit() {
   }
 }
 
-toggleContainer.addEventListener("click", toggleUnit);
-toggleContainer.addEventListener("keydown", (e) => {
-  if (e.key === "Enter" || e.key === " ") {
-    e.preventDefault();
-    toggleUnit();
-  }
-});
-
-function onIdle(callback) {
-  if ("requestIdleCallback" in window) {
-    requestIdleCallback(callback);
-  } else {
-    setTimeout(callback, 200);
-  }
-}
-
 async function getWeather(city) {
   isUsingGeoLocation = false;
   lastSearchedCity = city;
   cityInput.style.color = "";
 
-  const apiUrl = `/api/weather?city=${encodeURIComponent(city)}&units=${unit}`;
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
+    city
+  )}&appid=${apiKey}&units=${unit}`;
+  const forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(
+    city
+  )}&appid=${apiKey}&units=${unit}`;
 
   try {
     const response = await fetch(apiUrl);
     const data = await response.json();
 
-    if (data.current.cod && data.current.cod !== 200) {
+    if (data.cod !== 200) {
       cityInput.style.color = "red";
       cityInput.value = "City not found!";
       return;
     }
 
+    const forecastResponse = await fetch(forecastApiUrl);
+    const forecastData = await forecastResponse.json();
+
     weatherDiv.classList.remove("hidden");
-    locationElem.textContent = `${data.current.name}, ${data.current.sys.country}`;
-    temperatureElem.textContent = `Temperature: ${Math.round(data.current.main.temp)}°${unit === "metric" ? "C" : "F"}`;
-    descriptionElem.textContent = `Description: ${data.current.weather[0].description}`;
+    locationElem.textContent = `${data.name}, ${data.sys.country}`;
+    temperatureElem.textContent = `Temperature: ${Math.round(
+      data.main.temp
+    )}°${unit === "metric" ? "C" : "F"}`;
+    descriptionElem.textContent = `Description: ${data.weather[0].description}`;
     unitToggle.disabled = false;
     fahrenheitLabel.disabled = false;
 
-    onIdle(() => {
-      renderForecast(data.forecast.list);
-      setTimeout(() => {
-        weatherDiv.scrollIntoView({ behavior: "smooth" });
-      }, 300);
-    });
-  } catch {
-    alert("Server is down right now. Please try again later!");
+    setTimeout(() => {
+      weatherDiv.scrollIntoView({ behavior: "smooth" });
+    }, 200);
+
+    renderForecast(forecastData.list);
+  } catch (error) {
+    alert("Server is down. Please try again later!");
   }
 }
 
@@ -160,10 +155,6 @@ function renderForecast(forecastList) {
 
     const forecast = forecastList[index];
     const forecastDate = new Date(forecast.dt_txt);
-
-    const li = document.createElement("li");
-    li.className = "forecastcycle";
-
     const day = forecastDate.toLocaleString("en-US", { weekday: "long" });
     const hour = forecastDate.toLocaleString("en-US", {
       hour: "2-digit",
@@ -172,20 +163,22 @@ function renderForecast(forecastList) {
     });
     const temp = Math.round(forecast.main.temp);
     const forecastMain = forecast.weather[0].main;
-    const forecastIconSrc = getWeatherIcon(forecastMain);
     const forecastDescription = forecast.weather[0].description;
+    const forecastIconSrc = getWeatherIcon(forecastMain);
 
+    const li = document.createElement("li");
+    li.className = "forecastcycle";
     li.innerHTML = `
       <div class="forecast-time">
         <span class="forecast-day">${day}</span>, <span id="forecast-hour">${hour}</span>
       </div>
       <div class="forecast-data">
         <span class="forecast-description">${forecastDescription}</span>
-        <span class="forecast-temp">${temp}°<span class="forecast-unit">${unit === "metric" ? "C" : "F"}</span></span>
-        <span class="img"><img class="desImg" src="${forecastIconSrc}" loading="lazy" decoding="async" alt="weather icon"></span>
-      </div>
-    `;
-
+        <span class="forecast-temp">${temp}°<span class="forecast-unit">${
+      unit === "metric" ? "C" : "F"
+    }</span></span>
+        <span class="img"><img class="desImg" src="${forecastIconSrc}" alt="weather icon" loading="lazy" decoding="async"></span>
+      </div>`;
     ul.appendChild(li);
   }
 
@@ -205,31 +198,36 @@ async function getLocationWeather() {
 
       const lat = position.coords.latitude;
       const lon = position.coords.longitude;
-      const apiUrl = `/api/weather?lat=${lat}&lon=${lon}&units=${unit}`;
+      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
+      const forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
 
       try {
         const response = await fetch(apiUrl);
         const data = await response.json();
 
-        if (data.current.cod && data.current.cod !== 200) {
+        if (data.cod !== 200) {
           alert("Unable to get weather data based on your location.");
           return;
         }
 
-        cityInput.value = data.current.name;
+        cityInput.value = data.name;
         weatherDiv.classList.remove("hidden");
-        locationElem.textContent = `${data.current.name}, ${data.current.sys.country}`;
-        temperatureElem.textContent = `Temperature: ${Math.round(data.current.main.temp)}°${unit === "metric" ? "C" : "F"}`;
-        descriptionElem.textContent = `Description: ${data.current.weather[0].description}`;
+        locationElem.textContent = `${data.name}, ${data.sys.country}`;
+        temperatureElem.textContent = `Temperature: ${Math.round(
+          data.main.temp
+        )}°${unit === "metric" ? "C" : "F"}`;
+        descriptionElem.textContent = `Description: ${data.weather[0].description}`;
         unitToggle.disabled = false;
         fahrenheitLabel.disabled = false;
 
-        onIdle(() => {
-          renderForecast(data.forecast.list);
-          setTimeout(() => {
-            weatherDiv.scrollIntoView({ behavior: "smooth" });
-          }, 300);
-        });
+        const forecastResponse = await fetch(forecastApiUrl);
+        const forecastData = await forecastResponse.json();
+
+        setTimeout(() => {
+          weatherDiv.scrollIntoView({ behavior: "smooth" });
+        }, 200);
+
+        renderForecast(forecastData.list);
       } catch {
         alert("Error fetching weather data. Please try again later.");
       }
@@ -239,7 +237,3 @@ async function getLocationWeather() {
     }
   );
 }
-
-document.getElementById("getLocationWeather").addEventListener("click", () => {
-  getLocationWeather();
-});
