@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@upstash/ratelimit": "^2.0.6",
+    "@upstash/redis": "^1.35.2",
     "axios": "^1.11.0"
   }
 }
