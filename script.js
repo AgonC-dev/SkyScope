@@ -1,4 +1,4 @@
-const apiKey = "2408ae23b02c6cbe85ac54b455cb1289";
+
 let unit = "metric";
 let isUsingGeoLocation = false;
 let lastSearchedCity = "";
@@ -106,32 +106,25 @@ async function getWeather(city) {
   lastSearchedCity = city;
   cityInput.style.color = "";
 
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
-    city
-  )}&appid=${apiKey}&units=${unit}`;
-  const forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${encodeURIComponent(
-    city
-  )}&appid=${apiKey}&units=${unit}`;
+  const apiUrl = `/api/weather?city=${encodeURIComponent(city)}&units=${unit}`;
 
   try {
     const response = await fetch(apiUrl);
     const data = await response.json();
 
-    if (data.cod !== 200) {
+    if (response.status !== 200) {
       cityInput.style.color = "red";
-      cityInput.value = "City not found!";
+      cityInput.value = data.error || "Error fetching weather";
       return;
     }
 
-    const forecastResponse = await fetch(forecastApiUrl);
-    const forecastData = await forecastResponse.json();
+    const current = data.current;
+    const forecastData = data.forecast;
 
     weatherDiv.classList.remove("hidden");
-    locationElem.textContent = `${data.name}, ${data.sys.country}`;
-    temperatureElem.textContent = `Temperature: ${Math.round(
-      data.main.temp
-    )}°${unit === "metric" ? "C" : "F"}`;
-    descriptionElem.textContent = `Description: ${data.weather[0].description}`;
+    locationElem.textContent = `${current.name}, ${current.sys.country}`;
+    temperatureElem.textContent = `Temperature: ${Math.round(current.main.temp)}°${unit === "metric" ? "C" : "F"}`;
+    descriptionElem.textContent = `Description: ${current.weather[0].description}`;
     unitToggle.disabled = false;
     fahrenheitLabel.disabled = false;
 
@@ -144,6 +137,7 @@ async function getWeather(city) {
     alert("Server is down. Please try again later!");
   }
 }
+
 
 function renderForecast(forecastList) {
   forecastContainer.innerHTML = "";
@@ -198,8 +192,7 @@ async function getLocationWeather() {
 
       const lat = position.coords.latitude;
       const lon = position.coords.longitude;
-      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
-      const forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
+      const apiUrl = `/api/weather?lat=${lat}&lon=${lon}&units=${unit}`;
 
       try {
         const response = await fetch(apiUrl);
