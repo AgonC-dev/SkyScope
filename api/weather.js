@@ -14,10 +14,9 @@ const ratelimit = new Ratelimit({
 
 export default async function handler(req, res) {
   // Extract IP — always gets first IP if there's a list
-  const ip = (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '')
-    .toString()
-    .split(',')[0]
-    .trim();
+  const forwarded = req.headers['x-forwarded-for'];
+  const ip = typeof forwarded === 'string' ? forwarded.split(',')[0] : req.socket.remoteAddress;
+  console.log('IP:', ip);
 
   // Limit check
   try {
