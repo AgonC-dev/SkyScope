@@ -1,5 +1,3 @@
-// /api/weather.js
-
 import { Redis } from '@upstash/redis';
 import { Ratelimit } from '@upstash/ratelimit';
 
@@ -9,22 +7,30 @@ const redis = new Redis({
   token: process.env.UPSTASH_REDIS_REST_TOKEN,
 });
 
-
-// Rate limiter: 10 requests per 1 minute per IP
+// Rate limiter: 3 requests per 1 minute per IP (strict for testing)
 const ratelimit = new Ratelimit({
   redis,
-  limiter: Ratelimit.fixedWindow(10, '1 m'),
+  limiter: Ratelimit.fixedWindow(3, '1 m'),
 });
 
 export default async function handler(req, res) {
-  // Get client IP (behind proxies)
   const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown';
+  console.log("Client IP:", ip);
+
+  // Test Redis connection (remove this after confirming it works)
+  try {
+    await redis.ping();
+    console.log("Redis ping successful");
+  } catch (e) {
+    console.error("Redis connection failed:", e);
+    return res.status(503).json({ error: 'Redis unavailable. Try again later.' });
+  }
 
   // Rate limit check
   try {
     const { success, remaining, reset } = await ratelimit.limit(ip);
 
-    res.setHeader('X-RateLimit-Limit', 10);
+    res.setHeader('X-RateLimit-Limit', 3);
     res.setHeader('X-RateLimit-Remaining', remaining);
     res.setHeader('X-RateLimit-Reset', reset);
 
@@ -33,7 +39,6 @@ export default async function handler(req, res) {
     }
   } catch (err) {
     console.error('Rate limiter error:', err);
-    // Optionally allow requests if rate limiter fails, or block:
     return res.status(503).json({ error: 'Rate limiter unavailable. Please try again later.' });
   }
 
