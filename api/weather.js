@@ -8,7 +8,7 @@ const redis = new Redis({
 
 const ratelimit = new Ratelimit({
   redis,
-  limiter: Ratelimit.slidingWindow(10, '1 m'), // 10 requests per 1 minute per IP
+  limiter: Ratelimit.slidingWindow(15, '1 m'), // 15 requests per 1 minute per IP
   analytics: true,
 });
 
@@ -63,7 +63,7 @@ export default async function handler(req, res) {
     ]);
 
     if (!currentRes.ok || !forecastRes.ok) {
-      return res.status(500).json({ error: alert('OpenWeather fetch failed, Too many tries') });
+      return res.status(500).json({ error: 'OpenWeather fetch failed, Too many tries' });
     }
 
     const [currentData, forecastData] = await Promise.all([
