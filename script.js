@@ -192,7 +192,7 @@ async function getLocationWeather() {
       const apiUrl = `/api/weather?lat=${lat}&lon=${lon}&units=${unit}`;
 
       try {
-        const response = await fetch(apiUrl);
+        const response = await fetch(apiUrl, { cache: "no-store" });
         const data = await response.json();
 
         if (data.cod !== 200) {
