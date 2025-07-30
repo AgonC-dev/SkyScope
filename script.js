@@ -131,6 +131,7 @@ async function getWeather(city) {
   }
 }
 
+const forecastData = data.forecast;
 
 function renderForecast(forecastList) {
   forecastContainer.innerHTML = "";
@@ -173,6 +174,9 @@ function renderForecast(forecastList) {
 }
 
 async function getLocationWeather() {
+
+
+
   if (!navigator.geolocation) {
     alert("Geolocation is not supported by your browser.");
     return;
