@@ -57,13 +57,6 @@ document.getElementById("search").addEventListener("click", () => {
   else alert("Please enter a city name.");
 });
 
-cityInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    const city = cityInput.value.trim();
-    if (city) getWeather(city);
-    else alert("Please enter a city name.");
-  }
-});
 
 cityInput.addEventListener("input", function () {
   this.style.color = "";
@@ -213,8 +206,7 @@ async function getLocationWeather() {
         unitToggle.disabled = false;
         fahrenheitLabel.disabled = false;
 
-        const forecastResponse = await fetch(forecastApiUrl);
-        const forecastData = await forecastResponse.json();
+    
 
         setTimeout(() => {
           weatherDiv.scrollIntoView({ behavior: "smooth" });
