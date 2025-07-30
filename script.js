@@ -131,7 +131,7 @@ async function getWeather(city) {
   }
 }
 
-const forecastData = data.forecast;
+
 
 function renderForecast(forecastList) {
   forecastContainer.innerHTML = "";
@@ -199,6 +199,9 @@ async function getLocationWeather() {
           alert("Unable to get weather data based on your location.");
           return;
         }
+
+        
+        const forecastData = data.forecast;
 
         cityInput.value = data.name;
         weatherDiv.classList.remove("hidden");
