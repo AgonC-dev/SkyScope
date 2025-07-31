@@ -195,7 +195,7 @@ async function getLocationWeather() {
         const response = await fetch(apiUrl, { cache: "no-store" });
         const data = await response.json();
 
-        if (data.cod !== 200) {
+        if (data.cod !== 200 && data.cod !== "200") {
           alert("Unable to get weather data based on your location.");
           return;
         }
