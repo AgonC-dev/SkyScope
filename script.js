@@ -174,9 +174,6 @@ function renderForecast(forecastList) {
 }
 
 async function getLocationWeather() {
-
-
-
   if (!navigator.geolocation) {
     alert("Geolocation is not supported by your browser.");
     return;
@@ -193,33 +190,26 @@ async function getLocationWeather() {
 
       try {
         const response = await fetch(apiUrl, { cache: "no-store" });
-        const data = await response.json();
-
-        if (data.current.cod !== 200 && data.current.cod !== "200") {
+        
+        // Check HTTP status first
+        if (response.status !== 200) {
           alert("Unable to get weather data based on your location.");
           return;
         }
-
         
+        const data = await response.json();
+        const current = data.current; // Access current weather data
         const forecastData = data.forecast;
 
-        cityInput.value = data.name;
+        cityInput.value = current.name; // Use current.name instead of data.name
         weatherDiv.classList.remove("hidden");
-        locationElem.textContent = `${data.name}, ${data.sys.country}`;
+        locationElem.textContent = `${current.name}, ${current.sys.country}`;
         temperatureElem.textContent = `Temperature: ${Math.round(
-          data.main.temp
+          current.main.temp // Use current.main.temp
         )}°${unit === "metric" ? "C" : "F"}`;
-        descriptionElem.textContent = `Description: ${data.weather[0].description}`;
-        unitToggle.disabled = false;
-        fahrenheitLabel.disabled = false;
-
-    
-
-        setTimeout(() => {
-          weatherDiv.scrollIntoView({ behavior: "smooth" });
-        }, 200);
-
-        renderForecast(forecastData.list);
+        descriptionElem.textContent = `Description: ${current.weather[0].description}`;
+        
+        // ... rest of the code ...
       } catch {
         alert("Error fetching weather data. Please try again later.");
       }
