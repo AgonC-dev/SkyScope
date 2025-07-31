@@ -210,6 +210,10 @@ async function getLocationWeather() {
         descriptionElem.textContent = `Description: ${current.weather[0].description}`;
         
         renderForecast(forecastData.list);
+
+        setTimeout(() => {
+          weatherDiv.scrollIntoView({ behavior: "smooth" });
+        }, 200);
         // ... rest of the code ...
       } catch {
         alert("Error fetching weather data. Please try again later.");
