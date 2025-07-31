@@ -209,6 +209,7 @@ async function getLocationWeather() {
         )}°${unit === "metric" ? "C" : "F"}`;
         descriptionElem.textContent = `Description: ${current.weather[0].description}`;
         
+        renderForecast(forecastData.list);
         // ... rest of the code ...
       } catch {
         alert("Error fetching weather data. Please try again later.");
